@@ -81,3 +81,13 @@ def check_chem_assignments(chem_props_vars,chem_props_strs,chem_index):
         pass
     else: sys.exit('There is an issue with your chemical_assignments.csv file. Number of species is incorrect.')
 ####################################################################################################
+    
+####################################################################################################
+def check_subpuc_SCC_map(subpuc_scc_map,subpuc_names):
+    if len(subpuc_names) == len(subpuc_scc_map):
+        pass
+    else: sys.exit('There is an issue with your subpuc_SCC_map.csv file. Number of sub-PUC(s) is incorrect.')
+    if np.array_equal(subpuc_names[:],subpuc_scc_map[:,1]):
+        pass
+    else: sys.exit('There is an issue with your subpuc_SCC_map.csv file. sub-PUCs in wrong order.')
+####################################################################################################

@@ -13,8 +13,8 @@ startTime = datetime.now()
 ####################################################################################################
 ### User Input
 ### Start and end year for execution:
-STARTYEAR = '2016'
-ENDYEAR   = '2018'
+STARTYEAR = '2018'
+ENDYEAR   = '2019'
 ### Generate summary figures (TRUE or FALSE)?
 GEN_FIGS  = 'FALSE'
 ### Location of modules:
@@ -35,6 +35,7 @@ organic_spec     = np.genfromtxt("./input/subpuc_organic_speciation.csv",delimit
 chem_index       = np.genfromtxt("./input/chemical_assignments_index.csv",delimiter=";",skip_header=1,dtype='str',usecols=(0))
 chem_props_vars  = np.genfromtxt("./input/chemical_assignments.csv",delimiter=",",skip_header=1,usecols=(1,4,5,6,9,12,13,14))  # SPECIATE_ID, NumC, NumO, MW, Koa, log(C*), SOA Yield, MIR
 chem_props_strs  = np.genfromtxt("./input/chemical_assignments.csv",delimiter=",",skip_header=1,dtype='str',usecols=(0,2,3))   # GROUP, HAPS, nonVOCTOG
+subpuc_scc_map   = np.genfromtxt("./input/subpuc_SCC_map.csv",delimiter=",",dtype='str',skip_header=1)                         # SCC	PUC_sub-PUC
 county_fips      = np.genfromtxt("./input/county_fips_index.csv",delimiter=",",dtype='str',usecols=(0))                        # Index of FIPS IDs
 tot_population   = np.genfromtxt("./input/state_population.csv",delimiter=",")                                                 # population count
 ####################################################################################################
@@ -73,6 +74,8 @@ for year in years2loop:
     check_inputs.check_organic_spec(subpuc_names,organic_spec,chem_index)
     ### QA check on chemical_assignments.csv file
     check_inputs.check_chem_assignments(chem_props_vars,chem_props_strs,chem_index)
+    ### QA check on subpuc_SCC_map.csv file
+    check_inputs.check_subpuc_SCC_map(subpuc_scc_map,subpuc_names)
 
     ### Checks for necessary output directories and creates them, if absent.
     check_directories.check_create_directory(year)
@@ -85,7 +88,7 @@ for year in years2loop:
     year_specific_usage = subpuc_speciation.year_specific_usage(year,subpuc_usage)
     ### Calculate total and speciated sub-PUC emissions
     subpuc_speciation.calc_subpuc_emis(year,subpuc_names,year_specific_usage,subpuc_usetime,subpuc_controls,first_ord_spec,organic_spec,\
-                                       chem_props_vars,chem_props_strs,evaptime,c_mass)
+                                       chem_props_vars,chem_props_strs,evaptime,c_mass,subpuc_scc_map)
     
     ### Calculate the O:C ratio for all compounds
     oc_ratio = subpuc_speciation_ordered.oxycar_ratio(chem_props_vars)
@@ -100,12 +103,12 @@ for year in years2loop:
     subpuc_spatial_allocation.allocate(year,subpuc_names,annual_pop)
     
     ### Calculates the SOA and O3 potential for all states and counties.
-    subpuc_airquality_potential.aq_potential(year,subpuc_names)
+#    subpuc_airquality_potential.aq_potential(year,subpuc_names)
     
     ### Calculates the total, county-level VCP emissions speciated and ordered for ENDYEAR.
-    if int(year) == int(ENDYEAR):
-        speciated_spatial_allocation.speciated_allocation(year,chem_index,county_fips)
-    else: pass
+#    if int(year) == int(ENDYEAR):
+#        speciated_spatial_allocation.speciated_allocation(year,chem_index,county_fips)
+#    else: pass
 
 if GEN_FIGS == 'TRUE':
     ### Generate summary figures

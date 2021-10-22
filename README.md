@@ -27,3 +27,12 @@
     -Fixed bug in speciated_spatial_allocation.py: allocation based on estimated
      emissions; not organic composition profiles.
 #####################################################################################
+
+#####################################################################################
+### VCPy.v2.0: Results and description published in TBD
+	-Updated printing ink profile from SPECIATE profile 2570 to CARB profile 517.
+	-Removed O&G solvents. Will be covered in O&G Tool.
+	-Updated all allocation methods to be consistent with NEI methods.
+	-Speciated fragrances using average profile provided in Coggon et al 2021 PNAS SI.
+	-Added new sub-PUCs to facilitate mapping to SCCs. Now 34 sub-PUCs in total.
+#####################################################################################
