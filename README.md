@@ -35,4 +35,10 @@
 	-Updated all allocation methods to be consistent with NEI methods.
 	-Speciated fragrances using average profile provided in Coggon et al 2021 PNAS SI.
 	-Added new sub-PUCs to facilitate mapping to SCCs. Now 34 sub-PUCs in total.
+	-Updated organic profiles for all industrial coating sub-PUCs to be consistent
+	 with circa-2020 modeling platform profile mapping (profiles themselves are much
+	 older than 2020).
+	-Summary output and speciated emissions (state- and county-level) now provided for
+	 both sub-PUCs and SCCs.
+	-
 #####################################################################################
