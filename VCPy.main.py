@@ -17,6 +17,8 @@ STARTYEAR = '2018'
 ENDYEAR   = '2019'
 ### Generate summary figures (TRUE or FALSE)?
 GEN_FIGS  = 'FALSE'
+### Generate SMOKE flat files (TRUE or FALSE)? Note: significantly increases execution time.
+GEN_SFF   = 'FALSE'
 ### Location of modules:
 sys.path.append('./modules/')
 ### Evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 for more details.
@@ -99,8 +101,13 @@ for year in years2loop:
 
     ### Calculates US population for target year
     annual_pop = subpuc_spatial_allocation.annual_population(year,tot_population)
-    ### Generate TOG/VOC csv files for each sub-PUC by state and county.
+    ### Generate TOG/VOC csv files for each sub-PUC and SCC by state and county
     subpuc_spatial_allocation.allocate(year,subpuc_names,annual_pop)
+    ### Generate SMOKE flat file
+    if GEN_SFF == 'TRUE':
+        subpuc_spatial_allocation.smoke_flat_file(year)
+    elif GEN_SFF == 'FALSE': pass
+    else: print('Check GEN_SFF entry.')
     
     ### Calculates the SOA and O3 potential for all states and counties.
 #    subpuc_airquality_potential.aq_potential(year,subpuc_names)

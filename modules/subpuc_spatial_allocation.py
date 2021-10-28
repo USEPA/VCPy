@@ -1,5 +1,7 @@
 import sys
 import numpy as np
+import pandas as pd
+from datetime import datetime
 
 ####################################################################################################
 ### These functions generate TOG/VOC csv files for each sub-PUC by state and county.
@@ -35,7 +37,7 @@ def allocate(year,subpuc_names,annual_pop):
     scc_TOG_emis             = np.genfromtxt('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(7))    # volatile.emission.kg/person/yr
     ### Import SCC VOC emissions.
     scc_VOC_emis             = np.genfromtxt('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(9))    # VOC.emission.kg/person/yr
-    ### Import sub-PUC names.
+    ### Import SCC labels.
     scc_labels               = np.genfromtxt('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv',dtype='str',delimiter=',',skip_header=1,usecols=(0))    # SCC
     ################################################################################################
 
@@ -142,47 +144,96 @@ def allocate(year,subpuc_names,annual_pop):
 
     ################################################################################################
     ###
-    headerline1   = 'fipstate,fipscty,'+np.array2string(scc_labels[:],max_line_width=1e6,separator=',') 
-    headerline2   = 'All emissions reported in kg/year'
-    headerline    = '\n'.join([headerline1,headerline2])
-    output_file   = './output/emissions_spatially_allocated/'+str(year)+'/scc_county_VOC_emissions_'+str(year)+'.csv'
-    np.savetxt(output_file,final_scc_county_VOC_array[:],delimiter=',',header=headerline)
-    ################################################################################################
-
-    ################################################################################################
-    ### 
-    headerline1   = 'fipstate,fipscty,'+np.array2string(scc_labels[:],max_line_width=1e6,separator=',') 
-    headerline2   = 'All emissions reported in Gg/year'
-    headerline    = '\n'.join([headerline1,headerline2])
-    output_file   = './output/emissions_spatially_allocated/'+str(year)+'/scc_state_TOG_emissions_'+str(year)+'.csv'
-    np.savetxt(output_file,final_scc_state_TOG_array[:],delimiter=',',header=headerline)
-    ################################################################################################
-
-    ################################################################################################
-    ###
-    headerline1   = 'fipstate,fipscty,'+np.array2string(scc_labels[:],max_line_width=1e6,separator=',') 
-    headerline2   = 'All emissions reported in kg/year'
-    headerline    = '\n'.join([headerline1,headerline2])
-    output_file   = './output/emissions_spatially_allocated/'+str(year)+'/scc_county_TOG_emissions_'+str(year)+'.csv'
-    np.savetxt(output_file,final_scc_county_TOG_array[:],delimiter=',',header=headerline)
-    ################################################################################################
-
-    ################################################################################################
-    ### 
-    headerline1   = 'fipstate,fipscty,'+np.array2string(scc_labels[:],max_line_width=1e6,separator=',') 
-    headerline2   = 'All emissions reported in Gg/year'
-    headerline    = '\n'.join([headerline1,headerline2])
-    output_file   = './output/emissions_spatially_allocated/'+str(year)+'/scc_state_VOC_emissions_'+str(year)+'.csv'
-    np.savetxt(output_file,final_scc_state_VOC_array[:],delimiter=',',header=headerline)
-    ################################################################################################
-
-    ################################################################################################
-    ###
     headerline1   = 'fipstate,fipscty,'+np.array2string(subpuc_names[:],max_line_width=1e6,separator=',') 
     headerline2   = 'All emissions reported in kg/year'
     headerline    = '\n'.join([headerline1,headerline2])
     output_file   = './output/emissions_spatially_allocated/'+str(year)+'/subpuc_county_VOC_emissions_'+str(year)+'.csv'
     np.savetxt(output_file,final_subpuc_county_VOC_array[:],delimiter=',',header=headerline)
+    ################################################################################################
+
+    ################################################################################################
+    ### 
+    temp          = ','.join(map(str,scc_labels[:]))
+    headerline1   = 'fipstate,fipscty,'+temp
+    headerline2   = '# All emissions reported in Gg/year'
+    headerline    = '\n'.join([headerline1,headerline2])
+    output_file   = './output/emissions_spatially_allocated/'+str(year)+'/scc_state_TOG_emissions_'+str(year)+'.csv'
+    np.savetxt(output_file,final_scc_state_TOG_array[:],delimiter=',',header=headerline,comments='')
+    ################################################################################################
+
+    ################################################################################################
+    ###
+    temp          = ','.join(map(str,scc_labels[:]))
+    headerline1   = 'fipstate,fipscty,'+temp
+    headerline2   = '# All emissions reported in kg/year'
+    headerline    = '\n'.join([headerline1,headerline2])
+    output_file   = './output/emissions_spatially_allocated/'+str(year)+'/scc_county_TOG_emissions_'+str(year)+'.csv'
+    np.savetxt(output_file,final_scc_county_TOG_array[:],delimiter=',',header=headerline,comments='')
+    ################################################################################################
+
+    ################################################################################################
+    ### 
+    temp          = ','.join(map(str,scc_labels[:]))
+    headerline1   = 'fipstate,fipscty,'+temp
+    headerline2   = '# All emissions reported in Gg/year'
+    headerline    = '\n'.join([headerline1,headerline2])
+    output_file   = './output/emissions_spatially_allocated/'+str(year)+'/scc_state_VOC_emissions_'+str(year)+'.csv'
+    np.savetxt(output_file,final_scc_state_VOC_array[:],delimiter=',',header=headerline,comments='')
+    ################################################################################################
+
+    ################################################################################################
+    ###
+    temp          = ','.join(map(str,scc_labels[:]))
+    headerline1   = 'fipstate,fipscty,'+temp
+    headerline2   = '# All emissions reported in kg/year'
+    headerline    = '\n'.join([headerline1,headerline2])
+    output_file   = './output/emissions_spatially_allocated/'+str(year)+'/scc_county_VOC_emissions_'+str(year)+'.csv'
+    np.savetxt(output_file,final_scc_county_VOC_array[:],delimiter=',',header=headerline,comments='')
+    ################################################################################################
+
+####################################################################################################
+def smoke_flat_file(year):
+
+    ################################################################################################
+    ### Import County emissions data by SCC. 
+    #### Get input dataset.
+    scc_county_emissions = pd.read_csv('./output/emissions_spatially_allocated/'+str(year)+'/scc_county_VOC_emissions_'+str(year)+'.csv',delimiter=',',header=0)#,skiprows=2)
+    ### Import SCC labels.
+    scc_labels           = pd.read_csv('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv')
+    scc_labels           = pd.DataFrame({'SCC': scc_labels.iloc[:,0]})
+    ################################################################################################
+    
+    ################################################################################################
+    ### Generate data.
+    df = pd.DataFrame(columns=['COUNTRY_CD','REGION_CD','SCC','POLL','ANN_VALUE','CALC_YEAR','DATE_UPDATED','DATA_SET_ID','NOTE'])
+    now   = datetime.now()
+    for idx1, row1 in scc_county_emissions.iterrows():
+        if np.isnan(row1['2461030999']):
+            pass
+        else:
+            if float(row1['fipstate']) / 10 < 1.0:
+                statefips = '0'+str(int(float(row1['fipstate'])))
+            else:
+                statefips = str(int(float(row1['fipstate'])))
+            if float(row1['fipscty']) / 10 < 1.0:
+                countyfips = '00'+str(int(float(row1['fipscty'])))
+            elif float(row1['fipscty']) / 100 < 1.0 and float(row1['fipscty']) / 10 > 1.0:
+                countyfips = '0'+str(int(float(row1['fipscty'])))
+            else:
+                countyfips = str(int(float(row1['fipscty'])))
+            for idx2, row2 in scc_labels.iterrows():
+                if row1[str(row2['SCC'])] == 0.0:
+                    pass
+                else:
+                    temp_array = pd.Series(data={'COUNTRY_CD':'US','REGION_CD':statefips+countyfips,
+                                                 'SCC':row2['SCC'],'POLL':'VOC','ANN_VALUE':row1[str(row2['SCC'])]*0.00110231,
+                                                 'CALC_YEAR':str(year),'DATE_UPDATED':now.strftime('%Y%m%d'),
+                                                 'DATA_SET_ID':'VCPy_'+str(year),'NOTE':'No Point Source Subtraction'})
+                    df = df.append(temp_array,ignore_index=True)
+
+    ################################################################################################
+    ### Output
+    df.to_csv('./output/smoke_flat_file/'+str(year)+'/VCPy_SmokeFlatFile_'+str(year)+'.csv',index=False)
     ################################################################################################
 
 ####################################################################################################

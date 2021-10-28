@@ -40,5 +40,12 @@
 	 older than 2020).
 	-Summary output and speciated emissions (state- and county-level) now provided for
 	 both sub-PUCs and SCCs.
+	-Updated 1st-order speciation for industrial coatings to reflect water vs. solvent
+	 based reported sales from 2014 CARB coatings survey.
+	-Assumed 50% of allied paint products that are used as paint strippers, cleaners, 
+	 or solvents are disposed (i.e., feature post-use controls). This translates to 
+	 ~33% of the sub-PUC.
+	-SMOKE flat files are now output (county-level SCC emissions for TOG and VOC;
+	 formatted for direct input into EMF).
 	-
 #####################################################################################
