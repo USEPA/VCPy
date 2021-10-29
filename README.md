@@ -47,5 +47,4 @@
 	 ~33% of the sub-PUC.
 	-SMOKE flat files are now output (county-level SCC emissions for TOG and VOC;
 	 formatted for direct input into EMF).
-	-
 #####################################################################################
