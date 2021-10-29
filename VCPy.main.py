@@ -13,12 +13,12 @@ startTime = datetime.now()
 ####################################################################################################
 ### User Input
 ### Start and end year for execution:
-STARTYEAR = '2009'
-ENDYEAR   = '2010'
+STARTYEAR = '2018'
+ENDYEAR   = '2019'
 ### Generate summary figures (TRUE or FALSE)?
 GEN_FIGS  = 'FALSE'
-### Generate SMOKE flat files (TRUE or FALSE)? Note: significantly increases execution time.
-GEN_SFF   = 'FALSE'
+### Generate SMOKE flat files (TRUE or FALSE)? Note: substantially increases execution time.
+GEN_SFF   = 'TRUE'
 ### Location of modules:
 sys.path.append('./modules/')
 ### Evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 for more details.

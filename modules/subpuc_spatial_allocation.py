@@ -1,6 +1,5 @@
 import sys
 import numpy as np
-import pandas as pd
 from datetime import datetime
 
 ####################################################################################################
@@ -197,43 +196,55 @@ def smoke_flat_file(year):
     ################################################################################################
     ### Import County emissions data by SCC. 
     #### Get input dataset.
-    scc_county_emissions = pd.read_csv('./output/emissions_spatially_allocated/'+str(year)+'/scc_county_VOC_emissions_'+str(year)+'.csv',delimiter=',',header=0)#,skiprows=2)
-    ### Import SCC labels.
-    scc_labels           = pd.read_csv('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv')
-    scc_labels           = pd.DataFrame({'SCC': scc_labels.iloc[:,0]})
+    scc_county_emissions = np.genfromtxt('./output/emissions_spatially_allocated/'+str(year)+'/scc_county_VOC_emissions_'+str(year)+'.csv',delimiter=',',dtype='str')     
     ################################################################################################
     
     ################################################################################################
     ### Generate data.
-    df = pd.DataFrame(columns=['COUNTRY_CD','REGION_CD','SCC','POLL','ANN_VALUE','CALC_YEAR','DATE_UPDATED','DATA_SET_ID','NOTE'])
-    now   = datetime.now()
-    for idx1, row1 in scc_county_emissions.iterrows():
-        if np.isnan(row1['2461030999']):
-            pass
-        else:
-            if float(row1['fipstate']) / 10 < 1.0:
-                statefips = '0'+str(int(float(row1['fipstate'])))
+    now         = datetime.now()
+    final_array = []
+    for i in range(len(scc_county_emissions[1:,:])):
+        for j in range(len(scc_county_emissions[0,2:])):
+            if float(scc_county_emissions[1+i,0]) / 10 < 1.0:
+                statefips = '0'+str(int(float(scc_county_emissions[1+i,0])))
             else:
-                statefips = str(int(float(row1['fipstate'])))
-            if float(row1['fipscty']) / 10 < 1.0:
-                countyfips = '00'+str(int(float(row1['fipscty'])))
-            elif float(row1['fipscty']) / 100 < 1.0 and float(row1['fipscty']) / 10 > 1.0:
-                countyfips = '0'+str(int(float(row1['fipscty'])))
+                statefips = str(int(float(scc_county_emissions[1+i,0])))
+            if float(scc_county_emissions[1+i,1]) / 10 < 1.0:
+                countyfips = '00'+str(int(float(scc_county_emissions[1+i,1])))
+            elif float(scc_county_emissions[1+i,1]) / 100 < 1.0 and float(scc_county_emissions[1+i,1]) / 10 > 1.0:
+                countyfips = '0'+str(int(float(scc_county_emissions[1+i,1])))
             else:
-                countyfips = str(int(float(row1['fipscty'])))
-            for idx2, row2 in scc_labels.iterrows():
-                if row1[str(row2['SCC'])] == 0.0:
-                    pass
-                else:
-                    temp_array = pd.Series(data={'COUNTRY_CD':'US','REGION_CD':statefips+countyfips,
-                                                 'SCC':row2['SCC'],'POLL':'VOC','ANN_VALUE':row1[str(row2['SCC'])]*0.00110231,
-                                                 'CALC_YEAR':str(year),'DATE_UPDATED':now.strftime('%Y%m%d'),
-                                                 'DATA_SET_ID':'VCPy_'+str(year),'NOTE':'No Point Source Subtraction'})
-                    df = df.append(temp_array,ignore_index=True)
-
+                countyfips = str(int(float(scc_county_emissions[1+i,1])))
+            if float(scc_county_emissions[1+i,2+j]) == 0.0:
+                pass
+            elif len(final_array) == 0:
+                final_array = np.array(['US',statefips+countyfips,',,',scc_county_emissions[0,2+j],',VOC',
+                                       str(float(scc_county_emissions[1+i,2+j])*0.00110231),',,,,,,,',
+                                       str(year),now.strftime('%Y%m%d'),'VCPy_'+str(year),
+                                       ',,,,,,,,,,,,,,,,,,,,,,,'],dtype='object')
+            else:
+                temp_array = np.array(['US',statefips+countyfips,',,',scc_county_emissions[0,2+j],',VOC',
+                                       str(float(scc_county_emissions[1+i,2+j])*0.00110231),',,,,,,,',
+                                       str(year),now.strftime('%Y%m%d'),'VCPy_'+str(year),
+                                       ',,,,,,,,,,,,,,,,,,,,,,,'],dtype='object')
+                final_array = np.vstack([final_array,temp_array])
+    
     ################################################################################################
-    ### Output
-    df.to_csv('./output/smoke_flat_file/'+str(year)+'/VCPy_SmokeFlatFile_'+str(year)+'.csv',index=False)
+    ###
+    headerline1   = '#FORMAT=FF10_NONPOINT'
+    headerline2   = '#COUNTRY=US'
+    headerline3   = '#YEAR='+str(year)
+    headerline4   = '#NOTE=Point Source Subtraction not performed on this dataset'
+    headerline5   = '#Generated by VCPy on '+now.strftime('%Y%m%d')
+    headerline6   = 'country_cd,region_cd,tribal_code,census_tract_cd,shape_id,scc,emis_type,poll,'+\
+                    'ann_value,ann_pct_red,control_ids,control_measures,current_cost,cumulative_cost,'+\
+                    'projection_factor,reg_codes,calc_method,calc_year,date_updated,data_set_id,jan_value,'+\
+                    'feb_value,mar_value,apr_value,may_value,jun_value,jul_value,aug_value,sep_value,oct_value,'+\
+                    'nov_value,dec_value,jan_pctred,feb_pctred,mar_pctred,apr_pctred,may_pctred,jun_pctred,'+\
+                    'jul_pctred,aug_pctred,sep_pctred,oct_pctred,nov_pctred,dec_pctred'
+    headerline    = '\n'.join([headerline1,headerline2,headerline3,headerline4,headerline5,headerline6])
+    output_file   = './output/smoke_flat_file/'+str(year)+'/VCPy_SmokeFlatFile_'+str(year)+'.csv'
+    np.savetxt(output_file,final_array[:],delimiter=',',fmt='%s',header=headerline,comments='')
     ################################################################################################
 
 ####################################################################################################
