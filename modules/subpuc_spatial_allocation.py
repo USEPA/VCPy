@@ -221,12 +221,12 @@ def smoke_flat_file(year):
                 final_array = np.array(['US',statefips+countyfips,',,',scc_county_emissions[0,2+j],',VOC',
                                        str(float(scc_county_emissions[1+i,2+j])*0.00110231),',,,,,,,',
                                        str(year),now.strftime('%Y%m%d'),'VCPy_'+str(year),
-                                       ',,,,,,,,,,,,,,,,,,,,,,,'],dtype='object')
+                                       ',,,,,,,,,,,,,,,,,,,,,,,,'],dtype='object')
             else:
                 temp_array = np.array(['US',statefips+countyfips,',,',scc_county_emissions[0,2+j],',VOC',
                                        str(float(scc_county_emissions[1+i,2+j])*0.00110231),',,,,,,,',
                                        str(year),now.strftime('%Y%m%d'),'VCPy_'+str(year),
-                                       ',,,,,,,,,,,,,,,,,,,,,,,'],dtype='object')
+                                       ',,,,,,,,,,,,,,,,,,,,,,,,'],dtype='object')
                 final_array = np.vstack([final_array,temp_array])
     
     ################################################################################################
@@ -241,7 +241,7 @@ def smoke_flat_file(year):
                     'projection_factor,reg_codes,calc_method,calc_year,date_updated,data_set_id,jan_value,'+\
                     'feb_value,mar_value,apr_value,may_value,jun_value,jul_value,aug_value,sep_value,oct_value,'+\
                     'nov_value,dec_value,jan_pctred,feb_pctred,mar_pctred,apr_pctred,may_pctred,jun_pctred,'+\
-                    'jul_pctred,aug_pctred,sep_pctred,oct_pctred,nov_pctred,dec_pctred'
+                    'jul_pctred,aug_pctred,sep_pctred,oct_pctred,nov_pctred,dec_pctred,comment'
     headerline    = '\n'.join([headerline1,headerline2,headerline3,headerline4,headerline5,headerline6])
     output_file   = './output/smoke_flat_file/'+str(year)+'/VCPy_SmokeFlatFile_'+str(year)+'.csv'
     np.savetxt(output_file,final_array[:],delimiter=',',fmt='%s',header=headerline,comments='')
