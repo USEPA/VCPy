@@ -211,7 +211,7 @@ def smoke_flat_file(year):
                 statefips = str(int(float(scc_county_emissions[1+i,0])))
             if float(scc_county_emissions[1+i,1]) / 10 < 1.0:
                 countyfips = '00'+str(int(float(scc_county_emissions[1+i,1])))
-            elif float(scc_county_emissions[1+i,1]) / 100 < 1.0 and float(scc_county_emissions[1+i,1]) / 10 > 1.0:
+            elif float(scc_county_emissions[1+i,1]) / 100 < 1.0 and float(scc_county_emissions[1+i,1]) / 10 >= 1.0:
                 countyfips = '0'+str(int(float(scc_county_emissions[1+i,1])))
             else:
                 countyfips = str(int(float(scc_county_emissions[1+i,1])))
