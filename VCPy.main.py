@@ -13,15 +13,15 @@ startTime = datetime.now()
 ####################################################################################################
 ### User Input
 ### Start and end year for execution:
-STARTYEAR = '2016'
-ENDYEAR   = '2017'
+STARTYEAR = '2018'
+ENDYEAR   = '2019'
 ### Generate summary figures (TRUE or FALSE)?
 GEN_FIGS  = 'FALSE'
 ### Generate SMOKE flat files (TRUE or FALSE)? Note: substantially increases execution time.
-GEN_SFF   = 'TRUE'
+GEN_FF10  = 'FALSE'
 ### Location of modules:
 sys.path.append('./modules/')
-### Evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 for more details.
+### Evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 Atmos Chem Phys for more details.
 d      = 0.1   # mm; depth
 ve     = 30.   # m/hr; mass transfer coefficient
 ####################################################################################################
@@ -104,18 +104,18 @@ for year in years2loop:
     ### Generate TOG/VOC csv files for each sub-PUC and SCC by state and county
     subpuc_spatial_allocation.allocate(year,subpuc_names,annual_pop)
     ### Generate SMOKE flat file
-    if GEN_SFF == 'TRUE':
+    if GEN_FF10 == 'TRUE':
         subpuc_spatial_allocation.smoke_flat_file(year)
-    elif GEN_SFF == 'FALSE': pass
-    else: print('Check GEN_SFF entry.')
+    elif GEN_FF10 == 'FALSE': pass
+    else: print('Check GEN_FF10 entry.')
     
     ### Calculates the SOA and O3 potential for all states and counties.
 #    subpuc_airquality_potential.aq_potential(year,subpuc_names)
     
     ### Calculates the total, county-level VCP emissions speciated and ordered for ENDYEAR.
-#    if int(year) == int(ENDYEAR):
-#        speciated_spatial_allocation.speciated_allocation(year,chem_index,county_fips)
-#    else: pass
+    if int(year) == int(ENDYEAR):
+        speciated_spatial_allocation.speciated_allocation(year,chem_index,county_fips)
+    else: pass
 
 if GEN_FIGS == 'TRUE':
     ### Generate summary figures
