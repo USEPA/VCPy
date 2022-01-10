@@ -29,13 +29,13 @@ def allocate(year,subpuc_names,annual_pop):
     state_scc                = np.genfromtxt('./input/allocation/scc_state_allocation_'+str(year)+'.csv',delimiter=',',dtype='str')     
     county_scc               = np.genfromtxt('./input/allocation/scc_county_allocation_'+str(year)+'.csv',delimiter=',',dtype='str')    
     ### Import sub-PUC TOG emissions.
-    subPUC_TOG_emis          = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(7))    # volatile.emission.kg/person/yr
+    subPUC_TOG_emis          = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(9))    # volatile.emission.kg/person/yr
     ### Import sub-PUC VOC emissions.
-    subPUC_VOC_emis          = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(9))    # VOC.emission.kg/person/yr
+    subPUC_VOC_emis          = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(11))   # VOC.emission.kg/person/yr
     ### Import SCC TOG emissions.
-    scc_TOG_emis             = np.genfromtxt('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(7))    # volatile.emission.kg/person/yr
+    scc_TOG_emis             = np.genfromtxt('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(9))    # volatile.emission.kg/person/yr
     ### Import SCC VOC emissions.
-    scc_VOC_emis             = np.genfromtxt('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(9))    # VOC.emission.kg/person/yr
+    scc_VOC_emis             = np.genfromtxt('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(11))   # VOC.emission.kg/person/yr
     ### Import SCC labels.
     scc_labels               = np.genfromtxt('./output/emissions_by_scc/'+str(year)+'/summary_by_scc_'+str(year)+'.csv',dtype='str',delimiter=',',skip_header=1,usecols=(0))    # SCC
     ################################################################################################

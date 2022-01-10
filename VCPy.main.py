@@ -21,9 +21,12 @@ GEN_FIGS  = 'FALSE'
 GEN_FF10  = 'FALSE'
 ### Location of modules:
 sys.path.append('./modules/')
-### Evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 Atmos Chem Phys for more details.
-d      = 0.1   # mm; depth
-ve     = 30.   # m/hr; mass transfer coefficient
+### Outdoor evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 Atmos Chem Phys for more details.
+d_out  = 0.1   # mm; depth
+ve_out = 30.   # m/hr; mass transfer coefficient
+### Indoor evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 Atmos Chem Phys for more details.
+d_in   = 0.1   # mm; depth
+ve_in  = 5.    # m/hr; mass transfer coefficient
 ####################################################################################################
 
 ####################################################################################################
@@ -32,6 +35,7 @@ subpuc_names     = np.genfromtxt("./input/subpuc_1st_order_speciation.csv",delim
 subpuc_usage     = np.genfromtxt("./input/subpuc_usage.csv",delimiter=",")
 subpuc_usetime   = np.genfromtxt("./input/subpuc_usetimescales.csv",delimiter=",",skip_header=1)
 subpuc_controls  = np.genfromtxt("./input/subpuc_controls.csv",delimiter=",",skip_header=1)
+subpuc_per_in    = np.genfromtxt("./input/subpuc_percent_indoors.csv",delimiter=",",skip_header=1)
 first_ord_spec   = np.genfromtxt("./input/subpuc_1st_order_speciation.csv",delimiter=",",skip_header=1,usecols=(2,3,4,5)) 
 organic_spec     = np.genfromtxt("./input/subpuc_organic_speciation.csv",delimiter=",")
 chem_index       = np.genfromtxt("./input/chemical_assignments_index.csv",delimiter=";",skip_header=1,dtype='str',usecols=(0))
@@ -82,15 +86,17 @@ for year in years2loop:
     ### Checks for necessary output directories and creates them, if absent.
     check_directories.check_create_directory(year)
 
-    ### Calculate evaporation timescale for all compounds
-    evaptime = subpuc_speciation.calc_evaptime(d,ve,chem_props_vars)
+    ### Calculate evaporation timescale for all compounds outdoors
+    evaptime_outdoors = subpuc_speciation.calc_evaptime(d_out,ve_out,chem_props_vars)
+    ### Calculate evaporation timescale for all compounds indoors
+    evaptime_indoors = subpuc_speciation.calc_evaptime(d_in,ve_in,chem_props_vars)
     ### Calculate carbon mass of all compounds
     c_mass = subpuc_speciation.calc_c_mass(chem_props_vars)
     ### Extract year-specific usage
     year_specific_usage = subpuc_speciation.year_specific_usage(year,subpuc_usage)
     ### Calculate total and speciated sub-PUC emissions
-    subpuc_speciation.calc_subpuc_emis(year,subpuc_names,year_specific_usage,subpuc_usetime,subpuc_controls,first_ord_spec,organic_spec,\
-                                       chem_props_vars,chem_props_strs,evaptime,c_mass,subpuc_scc_map)
+    subpuc_speciation.calc_subpuc_emis(year,subpuc_names,year_specific_usage,subpuc_usetime,subpuc_controls,subpuc_per_in,first_ord_spec,\
+                                       organic_spec,chem_props_vars,chem_props_strs,evaptime_outdoors,evaptime_indoors,c_mass,subpuc_scc_map)
     
     ### Calculate the O:C ratio for all compounds
     oc_ratio = subpuc_speciation_ordered.oxycar_ratio(chem_props_vars)
