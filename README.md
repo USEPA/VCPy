@@ -47,4 +47,12 @@
 	 ~33% of the sub-PUC.
 	-SMOKE flat files are now output (county-level SCC emissions for TOG and VOC;
 	 formatted for direct input into EMF).
+	-Each sub-PUC is now able to be emitted indoors or outdoors. This is specified in
+	 the subpuc_percent_indoors.csv input file. All cleaning products, short use 
+	 personal care products, adhesives/sealants, and misc emissions are assumed to be
+	 entirely emitted indoors. All fuels/lighters, pesticides, and automotive 
+	 aftermarket are assumed to be entirely emitted outdoors. The rest are largely
+	 50/50. Indoor emissions are assigned a lower mass transfer coefficient to reflect
+	 more stagnant air conditions indoors and this is specified in the VCPy.main.py
+	 file.
 #####################################################################################
