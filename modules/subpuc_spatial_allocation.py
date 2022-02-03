@@ -28,6 +28,7 @@ def allocate(year,subpuc_names,annual_pop):
     scc_county_allocation    = np.genfromtxt('./input/allocation/scc_county_allocation_'+str(year)+'.csv',delimiter=',',skip_header=2)    # fipstate, fipcty, count for every sub-PUC
     state_scc                = np.genfromtxt('./input/allocation/scc_state_allocation_'+str(year)+'.csv',delimiter=',',dtype='str')     
     county_scc               = np.genfromtxt('./input/allocation/scc_county_allocation_'+str(year)+'.csv',delimiter=',',dtype='str')    
+    state_rule_scaling       = np.genfromtxt('./input/subpuc_state_scaling4rules.csv',delimiter=',',skip_header=2)    
     ### Import sub-PUC TOG emissions.
     subPUC_TOG_emis          = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(9))    # volatile.emission.kg/person/yr
     ### Import sub-PUC VOC emissions.
@@ -89,10 +90,25 @@ def allocate(year,subpuc_names,annual_pop):
     scc_state_allocation[:,2:]          = scc_state_allocation[:,2:]  / total_scc_state_allocation[:]
     scc_county_allocation[:,2:]         = scc_county_allocation[:,2:] / total_scc_county_allocation[:]
 
-    final_subpuc_state_TOG_array[:,2:]  = subpuc_state_allocation[:,2:]  * subPUC_TOG_emis[:] / 1e6
-    final_subpuc_county_TOG_array[:,2:] = subpuc_county_allocation[:,2:] * subPUC_TOG_emis[:]
-    final_subpuc_state_VOC_array[:,2:]  = subpuc_state_allocation[:,2:]  * subPUC_VOC_emis[:] / 1e6
-    final_subpuc_county_VOC_array[:,2:] = subpuc_county_allocation[:,2:] * subPUC_VOC_emis[:]
+    for i in range(len(state_rule_scaling)):
+        target_state = state_rule_scaling[i,0]
+        for j in range(len(final_subpuc_state_TOG_array)):
+            if final_subpuc_state_TOG_array[j,0] == target_state:
+                final_subpuc_state_TOG_array[j,2:]  = subpuc_state_allocation[j,2:] * subPUC_TOG_emis[:] / 1e6 * state_rule_scaling[i,2:]
+                final_subpuc_state_VOC_array[j,2:]  = subpuc_state_allocation[j,2:] * subPUC_VOC_emis[:] / 1e6 * state_rule_scaling[i,2:]
+            else: pass
+        for j in range(len(final_subpuc_county_TOG_array)):
+            if final_subpuc_county_TOG_array[j,0] == target_state:
+                final_subpuc_county_TOG_array[j,2:] = subpuc_county_allocation[j,2:] * subPUC_TOG_emis[:] / 1e6 * state_rule_scaling[i,2:]
+                final_subpuc_county_VOC_array[j,2:] = subpuc_county_allocation[j,2:] * subPUC_VOC_emis[:] / 1e6 * state_rule_scaling[i,2:]
+            else: pass
+
+# These lines can be used if no state-level controls are desired.
+# If so, comment out preceeding ~12 or so lines.
+#    final_subpuc_state_TOG_array[:,2:]  = subpuc_state_allocation[:,2:]  * subPUC_TOG_emis[:] / 1e6
+#    final_subpuc_county_TOG_array[:,2:] = subpuc_county_allocation[:,2:] * subPUC_TOG_emis[:]
+#    final_subpuc_state_VOC_array[:,2:]  = subpuc_state_allocation[:,2:]  * subPUC_VOC_emis[:] / 1e6
+#    final_subpuc_county_VOC_array[:,2:] = subpuc_county_allocation[:,2:] * subPUC_VOC_emis[:]
     
     for i in range(len(scc_labels)):
         for j in range(len(state_scc[0,2:])):
@@ -108,8 +124,9 @@ def allocate(year,subpuc_names,annual_pop):
                 break
             else: pass
 
-    print("Total National VCP Emissions [Tg/year]: ",np.round(np.nansum(subPUC_TOG_emis[:])/1e9,2))
-#    print("Total National VCP Emissions [Tg/year]: ",np.round(np.nansum(final_subpuc_state_TOG_array[:,2:])/1e3,2))
+#    print("Total National VCP Emissions [Tg/year]: ",np.round(np.nansum(subPUC_TOG_emis[:])/1e9,2))
+    print("Total National VCP TOG Emissions [Tg/year]: ",np.round(np.nansum(final_subpuc_state_TOG_array[:,2:])/1e3,2))
+    print("Total National VCP VOC Emissions [Tg/year]: ",np.round(np.nansum(final_subpuc_state_VOC_array[:,2:])/1e3,2))
 #    print("Total National VCP Emissions [Tg/year]: ",np.round(np.nansum(scc_TOG_emis[:])/1e9,2))
 #    print("Total National VCP Emissions [Tg/year]: ",np.round(np.nansum(final_scc_state_TOG_array[:,2:])/1e3,2))
     ################################################################################################

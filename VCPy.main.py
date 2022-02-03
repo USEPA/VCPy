@@ -13,8 +13,8 @@ startTime = datetime.now()
 ####################################################################################################
 ### User Input
 ### Start and end year for execution:
-STARTYEAR = '2016'
-ENDYEAR   = '2019'
+STARTYEAR = '2009'
+ENDYEAR   = '2010'
 ### Generate summary figures (TRUE or FALSE)?
 GEN_FIGS  = 'FALSE'
 ### Generate SMOKE flat files (TRUE or FALSE)? Note: substantially increases execution time.
@@ -116,7 +116,7 @@ for year in years2loop:
     else: print('Check GEN_FF10 entry.')
     
     ### Calculates the SOA and O3 potential for all states and counties.
-#    subpuc_airquality_potential.aq_potential(year,subpuc_names)
+    subpuc_airquality_potential.aq_potential(year,subpuc_names)
     
     ### Calculates the total, county-level VCP emissions speciated and ordered for ENDYEAR.
     if int(year) == int(ENDYEAR):
