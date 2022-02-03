@@ -55,4 +55,8 @@
 	 50/50. Indoor emissions are assigned a lower mass transfer coefficient to reflect
 	 more stagnant air conditions indoors and this is specified in the VCPy.main.py
 	 file.
+	-Some states have implemented area source VOC rules for nonpoint solvents. By
+	 using CARB derived data throughout the country, emissions from states without
+	 these rules are artificially depressed. Scaling factors are now applied to select
+     states and sub-PUCs to account for this variation.	 
 #####################################################################################
