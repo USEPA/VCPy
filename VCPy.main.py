@@ -57,6 +57,8 @@ import subpuc_speciation
 import subpuc_speciation_ordered
 ### This module contains two functions that generate TOG/VOC csv files for each sub-PUC by state and county.
 import subpuc_spatial_allocation
+### This module contains a function that generates SCC-level TOG & VOC summaries.
+import scc_summary
 ### This module contains a single function that calculates the SOA and O3 potential for all states and counties.
 import subpuc_airquality_potential
 ### This module contains a single function that calculates the total, county-level VCP emissions speciated and ordered.
@@ -108,12 +110,15 @@ for year in years2loop:
     ### Calculates US population for target year
     annual_pop = subpuc_spatial_allocation.annual_population(year,tot_population)
     ### Generate TOG/VOC csv files for each sub-PUC and SCC by state and county
-    subpuc_spatial_allocation.allocate(year,subpuc_names,annual_pop)
+    subpuc_spatial_allocation.allocate(year,subpuc_names,annual_pop,subpuc_scc_map)
     ### Generate SMOKE flat file
     if GEN_FF10 == 'TRUE':
         subpuc_spatial_allocation.smoke_flat_file(year)
     elif GEN_FF10 == 'FALSE': pass
     else: print('Check GEN_FF10 entry.')
+
+    ### Generate SCC-level TOG/VOC summary csv files
+    scc_summary.summary(year,subpuc_names,annual_pop)
     
     ### Calculates the SOA and O3 potential for all states and counties.
     subpuc_airquality_potential.aq_potential(year,subpuc_names)

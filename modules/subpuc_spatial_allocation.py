@@ -16,7 +16,7 @@ def annual_population(year,tot_population):
 ####################################################################################################
 
 ####################################################################################################
-def allocate(year,subpuc_names,annual_pop):
+def allocate(year,subpuc_names,annual_pop,subpuc_scc_map):
 
     ################################################################################################
     ### Import State and County spatial allocation data. 
@@ -99,36 +99,50 @@ def allocate(year,subpuc_names,annual_pop):
             else: pass
         for j in range(len(final_subpuc_county_TOG_array)):
             if final_subpuc_county_TOG_array[j,0] == target_state:
-                final_subpuc_county_TOG_array[j,2:] = subpuc_county_allocation[j,2:] * subPUC_TOG_emis[:] / 1e6 * state_rule_scaling[i,2:]
-                final_subpuc_county_VOC_array[j,2:] = subpuc_county_allocation[j,2:] * subPUC_VOC_emis[:] / 1e6 * state_rule_scaling[i,2:]
+                final_subpuc_county_TOG_array[j,2:] = subpuc_county_allocation[j,2:] * subPUC_TOG_emis[:] * state_rule_scaling[i,2:]
+                final_subpuc_county_VOC_array[j,2:] = subpuc_county_allocation[j,2:] * subPUC_VOC_emis[:] * state_rule_scaling[i,2:]
+            else: pass
+
+    for i in range(len(scc_labels)):
+        for j in range(len(subpuc_scc_map)):
+            if scc_labels[i] == subpuc_scc_map[j,0]:
+                for k in range(len(subpuc_names)):
+                    if subpuc_names[k] == subpuc_scc_map[j,1]:
+                        final_scc_state_TOG_array[:,2+i]   += final_subpuc_state_TOG_array[:,2+k]
+                        final_scc_state_VOC_array[:,2+i]   += final_subpuc_state_VOC_array[:,2+k]
+                        final_scc_county_TOG_array[:,2+i]  += final_subpuc_county_TOG_array[:,2+k]
+                        final_scc_county_VOC_array[:,2+i]  += final_subpuc_county_VOC_array[:,2+k]                        
+                        break
+                    else: pass
             else: pass
 
 # These lines can be used if no state-level controls are desired.
-# If so, comment out preceeding ~12 or so lines.
+# If so, comment out preceeding ~23 or so lines.
 #    final_subpuc_state_TOG_array[:,2:]  = subpuc_state_allocation[:,2:]  * subPUC_TOG_emis[:] / 1e6
 #    final_subpuc_county_TOG_array[:,2:] = subpuc_county_allocation[:,2:] * subPUC_TOG_emis[:]
 #    final_subpuc_state_VOC_array[:,2:]  = subpuc_state_allocation[:,2:]  * subPUC_VOC_emis[:] / 1e6
 #    final_subpuc_county_VOC_array[:,2:] = subpuc_county_allocation[:,2:] * subPUC_VOC_emis[:]
-    
-    for i in range(len(scc_labels)):
-        for j in range(len(state_scc[0,2:])):
-            if scc_labels[i] == state_scc[0,2+j]:
-                final_scc_state_TOG_array[:,2+i]  = scc_state_allocation[:,2+j]  * scc_TOG_emis[i] / 1e6
-                final_scc_state_VOC_array[:,2+i]  = scc_state_allocation[:,2+j]  * scc_VOC_emis[i] / 1e6
-                break
-            else: pass
-        for j in range(len(county_scc[0,2:])):
-            if scc_labels[i] == county_scc[0,2+j]:
-                final_scc_county_TOG_array[:,2+i] = scc_county_allocation[:,2+j]  * scc_TOG_emis[i]
-                final_scc_county_VOC_array[:,2+i] = scc_county_allocation[:,2+j]  * scc_VOC_emis[i]
-                break
-            else: pass
+#    
+#    for i in range(len(scc_labels)):
+#        for j in range(len(state_scc[0,2:])):
+#            if scc_labels[i] == state_scc[0,2+j]:
+#                final_scc_state_TOG_array[:,2+i]  = scc_state_allocation[:,2+j]  * scc_TOG_emis[i] / 1e6
+#                final_scc_state_VOC_array[:,2+i]  = scc_state_allocation[:,2+j]  * scc_VOC_emis[i] / 1e6
+#                break
+#            else: pass
+#        for j in range(len(county_scc[0,2:])):
+#            if scc_labels[i] == county_scc[0,2+j]:
+#                final_scc_county_TOG_array[:,2+i] = scc_county_allocation[:,2+j]  * scc_TOG_emis[i]
+#                final_scc_county_VOC_array[:,2+i] = scc_county_allocation[:,2+j]  * scc_VOC_emis[i]
+#                break
+#            else: pass
 
 #    print("Total National VCP Emissions [Tg/year]: ",np.round(np.nansum(subPUC_TOG_emis[:])/1e9,2))
     print("Total National VCP TOG Emissions [Tg/year]: ",np.round(np.nansum(final_subpuc_state_TOG_array[:,2:])/1e3,2))
     print("Total National VCP VOC Emissions [Tg/year]: ",np.round(np.nansum(final_subpuc_state_VOC_array[:,2:])/1e3,2))
 #    print("Total National VCP Emissions [Tg/year]: ",np.round(np.nansum(scc_TOG_emis[:])/1e9,2))
-#    print("Total National VCP Emissions [Tg/year]: ",np.round(np.nansum(final_scc_state_TOG_array[:,2:])/1e3,2))
+#    print("Total National VCP TOG Emissions [Tg/year]: ",np.round(np.nansum(final_scc_state_TOG_array[:,2:])/1e3,2))
+#    print("Total National VCP VOC Emissions [Tg/year]: ",np.round(np.nansum(final_scc_state_VOC_array[:,2:])/1e3,2))
     ################################################################################################
 
     ################################################################################################

@@ -1,250 +1,414 @@
 # Chemical Name,Emissions [kg/yr]
-Ethanol,0.004459504515812733
-Acetone,0.003988870541987076
-Isopropyl Alcohol,0.0015398291573807928
-Ethylene Glycol,0.0009868192629584318
-Isobutane,0.0008216573033615832
-"2,2,4-Trimethyl-1,3-Pentanediol Isobutyrate (Texanol)",0.0008002333904146977
-Propane,0.0007867865573948934
-Propylene Glycol,0.0006028099050206872
-Methylene Chloride (Dichloromethane),0.0005929972479347842
-Decamethylcyclopentasiloxane,0.0004911013869956211
-n-Butane,0.0004793381579922733
-Methanol,0.00046717736670784507
-Branched C12 Alkanes,0.0004036892647234834
-"1,1-Difluoroethane (HFC-152a)",0.00039073539362914574
-n-Undecane,0.00034123873762910824
-C11 Cycloalkanes,0.00032274754851087194
-Dimethyl Ether,0.0003159592061332196
-Ethylene Glycol Monobutyl Ether,0.00029947030311573415
-Glycerol,0.0002923219710036313
-n-Dodecane,0.0002833189956450728
-Toluene,0.0002770828198015169
-C12 Cycloalkanes,0.00027234608727981074
-Dimethylpolysiloxane,0.0002635206580023472
-Alkyl (C16-C18) Methyl Esters,0.000216422541981659
-Isomers of xylene,0.00020734934912848134
-Terpene,0.000202384166619573
-C13 Branched Alkanes,0.00019251441248345431
-Ethyl Cyanoacrylate,0.00014171658527988154
-n-Heptane,0.00014130127286119526
-Branched C11 alkanes,0.00013881560328208141
-Diethylene Glycol Monobutyl Ether,0.00013757559544150155
-Methyl Acetate,0.00012259654709008929
-Parachlorobenzotrifluoride,0.00011827948605786066
-Diethylene Glycol Monoethyl Ether,0.00010279976195717798
-N-Butyl Acetate,0.00010189935406336616
-d-Limonene,9.59711388419854e-05
-Cyclotetrasiloxane,8.948138189921782e-05
-"Other, Misc. VOC Compounds Aggregated In Profile",8.666652540319658e-05
-n-Decane,8.649366027376596e-05
-Styrene,8.503622388780537e-05
-Methyl Ethyl Ketone (2-Butanone),8.417586000700441e-05
-Voc Ingredients < 0.1%,7.841464179725603e-05
-"Hydrocarbon Propellant (LPG, Sweetened)",7.644727143138917e-05
-2-Amino-2-Methyl-1-Propanol,7.283679861681975e-05
-Witch Hazel,7.133480794762819e-05
-"1,1,1,2-Tetrafluoroethane (HFC-134a)",7.056800316746661e-05
-C10 Cycloalkanes,6.650697486865142e-05
-Benzyl Alcohol,5.8061869125868184e-05
-Isobutyl Acetate,5.791121713382854e-05
-Dl-Limonene (Dipentene),5.727778337936367e-05
-Ethyl Benzene,5.671120136377581e-05
-Ethyl Acetate,5.42478866764469e-05
-Branched C6 Alkanes,5.277002610409968e-05
-n-Hexane,5.2178669821783563e-05
-n-Tridecane,4.810118492494414e-05
-Glycol Ether Dpnb (1-(2-Butoxy-1-Methylethoxy)-2-Propanol),4.6804785229574404e-05
-C13 Cycloalkanes,4.625532223430962e-05
-Dipropylene Glycol Monomethyl Ether,4.469955754635733e-05
-Propylene Glycol Butyl Ether (1-Butoxy-2-Propanol),4.39490335781956e-05
-"Alkanes, C14-16",4.000427065057855e-05
-N-Methylpyrrolidinone,3.953216378274649e-05
-n-Octane,3.7261417900418414e-05
-C7 Cycloalkanes,3.6970380420690344e-05
-Citronella Oil,3.6909123826703965e-05
-C6 Cycloalkanes,3.649572454831725e-05
-Cyclohexane,3.460729644891426e-05
-Branched C9 Alkanes,3.4519542406229834e-05
-"2,2,4,6,6-Pentamethylheptane",3.378971817085531e-05
-Diethyl Phthalate,3.180494990292296e-05
-Formic Acid,3.1313563489655866e-05
-Octamethylcyclotetrasiloxane,2.8534932636891538e-05
-C8 Cycloalkanes,2.6528054390578376e-05
-n-Nonane,2.639865011580723e-05
-n-Pentane,2.56466871659116e-05
-Branched C7 Alkanes,2.504446287532211e-05
-Linalyl Acetate,2.3572653156061487e-05
-Propylene Glycol Monomethyl Ether Acetate,2.2234227267899965e-05
-Misc. esters,2.2017915079406427e-05
-Misc. oxygenated compounds,2.0819661197533972e-05
-C9 Cycloalkanes,2.0379273609852852e-05
-Branched C8 Alkanes,2.0104209285233162e-05
-Diethylene Glycol,1.895359892351581e-05
-Hexane,1.8243039460206717e-05
-Phenoxyethanol,1.8120390324879154e-05
-Cyclopentane,1.8097541092417145e-05
-Dipropylene Glycol Methyl Ether Acetate,1.738233054307028e-05
-o-Xylene,1.5696421476619532e-05
-"Pentanedioic Acid, Dimethyl Ester",1.5593256138084434e-05
-C11 Trialkyl Benzenes,1.5558315369081624e-05
-Diethylene Glycol Monomethyl Ether,1.5282101023673405e-05
-Propylene Glycol N-Propyl Ether,1.4903979028016439e-05
-Acetic Acid,1.4464269159287707e-05
-n-Butyl Alcohol,1.4296130867739683e-05
-Cyclomethicone (A VMS),1.3703903561810023e-05
-Methylcyclohexane,1.3701968356640787e-05
-n-Heptane,1.3688589918788743e-05
-"1,2,4-Trimethylbenzene",1.3628737622379256e-05
-Citrus Terpenes,1.3410111941918946e-05
-2-Methylpentane,1.3259091006982958e-05
-m-Xylene,1.2895396319023475e-05
-Isoparaffins,1.2751070360100538e-05
-Hexyl Acetate,1.2619442317984112e-05
-Dipropylene Glycol Monopropyl Ether,1.2536043220593452e-05
-Dodecamethylcyclohexasiloxane,1.2418568379395843e-05
-n-Undecane,1.2275952273833095e-05
-N-Octane,1.0890109400303758e-05
-Dimethyl Adipate,1.0669408097561484e-05
-Branched C10 Alkanes,1.0281405586904748e-05
-C10 Trialkylbenzenes,9.758815806639277e-06
-"cis-1,3-dimethylcyclohexane",9.727602312181245e-06
-Methyl Isobutyl Ketone (Hexone),9.38406763517497e-06
-2-Ethylhexyl Benzoate,8.996454546543537e-06
-"1,2,4-Trimethylbenzene",8.637966957447429e-06
-2-Methylheptane,8.63714766200631e-06
-Propylene Glycol Monomethyl Ether (1-Methoxy-2-propanol),8.599110432430123e-06
-Sec-Butyl Alcohol,8.168989165741031e-06
-n-Propyl Alcohol,7.933007303411985e-06
-C11 Tetrasubstituted Benzenes,7.814361771371917e-06
-Methyl Ethyl Ketoxime,7.572893454267353e-06
-C5 Branched Alkanes,7.479221422116329e-06
-Methyl Amyl Ketone,7.298266309404887e-06
-Peroxyacetic Acid,7.097125096787434e-06
-C14 Cycloalkanes,7.004037063626023e-06
-Propylene Glycol Phenyl Ether,6.938259507118539e-06
-C12 Trisubstituted Benzenes,6.863576126426806e-06
-C10 Dialkyl Benzenes,6.464738542152639e-06
-Ethyl Methacrylate,6.334733649751819e-06
-Vertenex,6.284544886587796e-06
-Ethyl-3-Ethoxypropionate,6.119754918995248e-06
-Ethylene Glycol Monopropyl Ether,6.048678340760329e-06
-Polytetrafluoroethylene,5.824819878549097e-06
-n-Tetradecane,5.552470257106484e-06
-Ethyl Ether,5.531530121525681e-06
-"2,6-dimethylnonane",5.471340653100792e-06
-2-Pyrrolidone,5.42703455306849e-06
-Turpentine,5.378690615875198e-06
-Dibasic Ester,5.295299686960376e-06
-3-methylheptane,5.265215764365574e-06
-"1,2,4-trimethylcyclopentane",5.07724757923248e-06
-Benzene Derivates,4.982593997428403e-06
-2-methylhexane,4.919964416846301e-06
-Octamethyltrisiloxane,4.881189832002308e-06
-p-Xylene,4.769672743378852e-06
-"1,2,3-Trimethylbenzene",4.765695889185111e-06
-"Propanoic Acid, 2-Methyl-2,2-Dimethyl-1-(1-Methylethyl)-1,3-Propanediyl Ester",4.682579954447637e-06
-"trans,trans-1,2,4-trimethylcyclohexane",4.613541395079086e-06
-Triethylene Glycol,4.565096197425489e-06
-Propyl Acetate,4.498981388475787e-06
-"1,2-dimethylcyclopentane",4.39292823717563e-06
-Ethylene Glycol Butyl Ether Acetate (2-Butoxyethyl Acetate),4.389644211072101e-06
-Dipropylene Glycol,4.339532873018829e-06
-m-Ethyltoluene,4.298977678317319e-06
-m-Xylene,4.295959461958893e-06
-Vinyl Acetate,4.271073854879645e-06
-Acrylic Acid,4.267764481301441e-06
-1-Ethyl-2-Propyl Cyclohexane,4.196936598611424e-06
-Perchloroethylene (Tetrachloroethene),4.090667587583869e-06
-Ethylbenzene,3.903475483109553e-06
-Diacetone Alcohol,3.882532278830348e-06
-Ethylcyclohexane,3.8499665198960946e-06
-"N,N-Diethyl-M-Toluamide",3.608228333189439e-06
-Decamethyltetrasiloxane,3.598027593849667e-06
-4-methylnonane,3.5866058212507535e-06
-Ethyl Lactate,3.524743038976905e-06
-"1,1,1,3,3-Pentafluoropropane (HFC-245fa)",3.4260306269430016e-06
-N-Nonane,3.4040413202576927e-06
-"4,4-Dimethyloxazolidine",3.3824308365186028e-06
-C12 Naphthalenes,3.3235118346422784e-06
-"trans-1,4-dimethylcyclohexane",3.256112581224294e-06
-C15 Cycloalkanes,3.222073486033542e-06
-White Mineral Oil,3.1954619974061737e-06
-"trans-1,3-dimethylcyclohexane",3.1720327270660615e-06
-2-methyldecane,3.1690861715679947e-06
-C11 Tetralin or Indane,3.1463214826247063e-06
-Camphor,3.0748706342444033e-06
-"1,3,5-Trimethylbenzene",3.0159081928067937e-06
-Methyl Propyl Ketone (2-Pentanone),3.0006308593476155e-06
-n-Pentadecane,2.955853704208126e-06
-Diethylenetriamine,2.952514198828928e-06
-3-methyldecane,2.928598556666638e-06
-"2,6-dimethylheptane",2.905081836260554e-06
-Diethyl Aminoethanol,2.8266592217675903e-06
-Linalool,2.7773389109844496e-06
-Hexamethyldisilazane,2.7046144217574427e-06
-Soybean Oil,2.6962872508056813e-06
-"cis-1,cis-3,5-trimethylcyclohexane",2.626383383427228e-06
-Peach Lactone,2.6224548275149435e-06
-C16 Branched Alkanes,2.5588415650224784e-06
-"trans,cis-1,2,4-trimethylcyclohexane",2.557660304929705e-06
-"1,1,3-trimethylcyclohexane",2.556034927007553e-06
-"1,1,3-trimethylcyclopentane",2.516255168796664e-06
-4-methyldecane,2.5123218980291545e-06
-Tetramethylbenzenes,2.485948898914557e-06
-Methyl Methacrylate,2.4697514383571513e-06
-"Hexylene Glycol (2-Methyl-2,4-Pentanediol)",2.4101944604385988e-06
-"1,2,3-trimethylbenzene",2.4080300510008897e-06
-5-methyldecane,2.4046477018266342e-06
-"trans,trans-1,3,5-trimethylcyclohexane",2.4046477018266342e-06
-Diisopropyl Adipate,2.3746982119407803e-06
-Diethylene Glycol Butyl Ether Acetate (2-2-(Butoxyethoxy)Ethyl Acetate),2.3708405259822234e-06
-Tetrahydrofuran,2.367250356644482e-06
-Hydroxypropyl Methacrylate,2.3185418043074466e-06
-Butylcyclohexane,2.31739920856914e-06
-4-methylheptane,2.2979787020901615e-06
-Triethanolamine,2.259897595006832e-06
-p-Ethyltoluene,2.2497923475337548e-06
-o-Ethyltoluene,2.238816370252528e-06
-Methyl Propylcyclohexanes,2.2272384945524824e-06
-"Hydrocarbons, C13-C14, Isoalkanes",2.1965567773236586e-06
-"N,N-Dimethylethanolamine",2.1889765849509837e-06
-C11 Dialkyl Benzenes,2.1320711281891613e-06
-Hexamethyldisiloxane,2.0625351133924007e-06
-Methylindans,2.022972299975331e-06
-Tert-Butyl Alcohol,1.986887152165283e-06
-"1,2,3,5-Tetramethylbenzene",1.9005604665465694e-06
-Aliphatics,1.8874125817378836e-06
-"1,3,5-trimethylbenzene",1.75361450740832e-06
-Menthol,1.7458255629287954e-06
-Diethylene Glycol Ethyl Ether Acetate,1.6970015452568649e-06
-C15 Branched Alkanes,1.694958605365214e-06
-Siloxanes,1.6490245191411495e-06
-Trichloroethylene,1.6468929949529382e-06
-Methoxysilane,1.6468919525093356e-06
-Ethanolamine,1.6219261676103273e-06
-n-Propylbenzene,1.6082140561115225e-06
-Isopentane,1.579546341225559e-06
-C16 Cycloalkanes,1.5687936947550627e-06
-Dimethyl Sulfoxide,1.5682344264193374e-06
-B-Pinene,1.5681633875483043e-06
-Triethylamine,1.500058962475985e-06
-Indan,1.4685423082106183e-06
-Hexadecane,1.4350496959224356e-06
-Branched C17 Alkanes,1.4272154915016498e-06
-Tributyl Phosphate,1.3937130404071543e-06
-"1,5-Pentanediol",1.3789984322269092e-06
-"Alkanes, C11-12-Iso-",1.3474314414308677e-06
-Dihydroxyacetone,1.329705849900964e-06
-Hydroxyethyl Methacrylate,1.3180862499309565e-06
-2-Methylnaphthalene,1.3108189931320452e-06
-"Trans-1,2-Dichloroethene",1.23158365936223e-06
-Methylcyclopentane,1.231142713096591e-06
-Morpholine,1.21540233835261e-06
-Amyl Acetate,1.2058819281813496e-06
-2-Butoxy-1-Propanol,1.201435474895088e-06
-3-Methylpentane,1.1673041067490853e-06
-Methyl Styrene (Mixed) {Vinyl Toluene},1.1452962535675861e-06
-Pentamethylbenzene,1.1047684006814788e-06
-Isobutyl Alcohol,1.0886737351713435e-06
-"1,3-Diethylbenzene (meta)",1.0444587379481147e-06
+Ethanol,4459.504515812733
+Acetone,3988.870541987077
+Isopropyl Alcohol,1539.8291573807928
+Ethylene Glycol,986.8192629584319
+Isobutane,821.6573033615832
+"2,2,4-Trimethyl-1,3-Pentanediol Isobutyrate (Texanol)",800.2333904146976
+Propane,786.7865573948933
+Propylene Glycol,602.8099050206873
+Methylene Chloride (Dichloromethane),592.9972479347845
+Decamethylcyclopentasiloxane,491.1013869956212
+n-Butane,479.3381579922733
+Methanol,467.1773667078452
+Branched C12 Alkanes,403.68926472348335
+"1,1-Difluoroethane (HFC-152a)",390.73539362914573
+n-Undecane,341.2387376291082
+C11 Cycloalkanes,322.747548510872
+Dimethyl Ether,315.9592061332196
+Ethylene Glycol Monobutyl Ether,299.47030311573417
+Glycerol,292.3219710036313
+n-Dodecane,283.31899564507273
+Toluene,277.0828198015169
+C12 Cycloalkanes,272.3460872798107
+Dimethylpolysiloxane,263.52065800234726
+Alkyl (C16-C18) Methyl Esters,216.422541981659
+Isomers of xylene,207.3493491284814
+Terpene,202.38416661957297
+C13 Branched Alkanes,192.51441248345432
+Ethyl Cyanoacrylate,141.71658527988154
+n-Heptane,141.3012728611953
+Branched C11 alkanes,138.81560328208136
+Diethylene Glycol Monobutyl Ether,137.57559544150155
+Methyl Acetate,122.5965470900893
+Parachlorobenzotrifluoride,118.27948605786068
+Diethylene Glycol Monoethyl Ether,102.79976195717795
+N-Butyl Acetate,101.89935406336618
+d-Limonene,95.9711388419854
+Cyclotetrasiloxane,89.48138189921782
+"Other, Misc. VOC Compounds Aggregated In Profile",86.66652540319659
+n-Decane,86.49366027376595
+Styrene,85.03622388780538
+Methyl Ethyl Ketone (2-Butanone),84.17586000700442
+Voc Ingredients < 0.1%,78.41464179725605
+"Hydrocarbon Propellant (LPG, Sweetened)",76.44727143138918
+2-Amino-2-Methyl-1-Propanol,72.83679861681975
+Witch Hazel,71.33480794762819
+"1,1,1,2-Tetrafluoroethane (HFC-134a)",70.5680031674666
+C10 Cycloalkanes,66.50697486865145
+Benzyl Alcohol,58.06186912586817
+Isobutyl Acetate,57.911217133828565
+Dl-Limonene (Dipentene),57.27778337936366
+Ethyl Benzene,56.711201363775814
+Ethyl Acetate,54.24788667644691
+Branched C6 Alkanes,52.77002610409968
+n-Hexane,52.17866982178357
+n-Tridecane,48.10118492494414
+Glycol Ether Dpnb (1-(2-Butoxy-1-Methylethoxy)-2-Propanol),46.80478522957441
+C13 Cycloalkanes,46.25532223430962
+Dipropylene Glycol Monomethyl Ether,44.69955754635733
+Propylene Glycol Butyl Ether (1-Butoxy-2-Propanol),43.94903357819559
+"Alkanes, C14-16",40.00427065057856
+N-Methylpyrrolidinone,39.532163782746494
+n-Octane,37.2614179004184
+C7 Cycloalkanes,36.97038042069034
+Citronella Oil,36.90912382670396
+C6 Cycloalkanes,36.495724548317256
+Cyclohexane,34.60729644891427
+Branched C9 Alkanes,34.51954240622984
+"2,2,4,6,6-Pentamethylheptane",33.78971817085531
+Diethyl Phthalate,31.80494990292296
+Formic Acid,31.313563489655866
+Octamethylcyclotetrasiloxane,28.534932636891536
+C8 Cycloalkanes,26.528054390578387
+n-Nonane,26.398650115807236
+n-Pentane,25.6466871659116
+Branched C7 Alkanes,25.044462875322115
+Linalyl Acetate,23.572653156061488
+Propylene Glycol Monomethyl Ether Acetate,22.234227267899968
+Misc. esters,22.01791507940643
+Misc. oxygenated compounds,20.81966119753397
+C9 Cycloalkanes,20.379273609852852
+Branched C8 Alkanes,20.10420928523316
+Diethylene Glycol,18.953598923515806
+Hexane,18.243039460206717
+Phenoxyethanol,18.12039032487915
+Cyclopentane,18.097541092417146
+Dipropylene Glycol Methyl Ether Acetate,17.382330543070275
+o-Xylene,15.69642147661953
+"Pentanedioic Acid, Dimethyl Ester",15.593256138084435
+C11 Trialkyl Benzenes,15.558315369081622
+Diethylene Glycol Monomethyl Ether,15.282101023673405
+Propylene Glycol N-Propyl Ether,14.903979028016437
+Acetic Acid,14.464269159287706
+n-Butyl Alcohol,14.296130867739684
+Cyclomethicone (A VMS),13.703903561810021
+Methylcyclohexane,13.701968356640787
+n-Heptane,13.688589918788747
+"1,2,4-Trimethylbenzene",13.628737622379258
+Citrus Terpenes,13.410111941918943
+2-Methylpentane,13.259091006982958
+m-Xylene,12.895396319023472
+Isoparaffins,12.75107036010054
+Hexyl Acetate,12.619442317984108
+Dipropylene Glycol Monopropyl Ether,12.536043220593452
+Dodecamethylcyclohexasiloxane,12.418568379395843
+n-Undecane,12.275952273833095
+N-Octane,10.890109400303759
+Dimethyl Adipate,10.669408097561483
+Branched C10 Alkanes,10.281405586904745
+C10 Trialkylbenzenes,9.758815806639277
+"cis-1,3-dimethylcyclohexane",9.727602312181244
+Methyl Isobutyl Ketone (Hexone),9.384067635174972
+2-Ethylhexyl Benzoate,8.996454546543536
+"1,2,4-Trimethylbenzene",8.637966957447428
+2-Methylheptane,8.637147662006313
+Propylene Glycol Monomethyl Ether (1-Methoxy-2-propanol),8.599110432430122
+Sec-Butyl Alcohol,8.168989165741031
+n-Propyl Alcohol,7.933007303411985
+C11 Tetrasubstituted Benzenes,7.814361771371917
+Methyl Ethyl Ketoxime,7.572893454267355
+C5 Branched Alkanes,7.47922142211633
+Methyl Amyl Ketone,7.2982663094048865
+Peroxyacetic Acid,7.097125096787432
+C14 Cycloalkanes,7.004037063626023
+Propylene Glycol Phenyl Ether,6.938259507118539
+C12 Trisubstituted Benzenes,6.863576126426805
+C10 Dialkyl Benzenes,6.464738542152639
+Ethyl Methacrylate,6.3347336497518185
+Vertenex,6.2845448865877955
+Ethyl-3-Ethoxypropionate,6.119754918995247
+Ethylene Glycol Monopropyl Ether,6.048678340760328
+Polytetrafluoroethylene,5.824819878549097
+n-Tetradecane,5.552470257106485
+Ethyl Ether,5.531530121525682
+"2,6-dimethylnonane",5.471340653100793
+2-Pyrrolidone,5.4270345530684905
+Turpentine,5.378690615875199
+Dibasic Ester,5.295299686960377
+3-methylheptane,5.265215764365575
+"1,2,4-trimethylcyclopentane",5.077247579232481
+Benzene Derivates,4.982593997428403
+2-methylhexane,4.919964416846302
+Octamethyltrisiloxane,4.881189832002308
+p-Xylene,4.769672743378853
+"1,2,3-Trimethylbenzene",4.765695889185112
+"Propanoic Acid, 2-Methyl-2,2-Dimethyl-1-(1-Methylethyl)-1,3-Propanediyl Ester",4.682579954447638
+"trans,trans-1,2,4-trimethylcyclohexane",4.6135413950790864
+Triethylene Glycol,4.56509619742549
+Propyl Acetate,4.498981388475786
+"1,2-dimethylcyclopentane",4.392928237175631
+Ethylene Glycol Butyl Ether Acetate (2-Butoxyethyl Acetate),4.389644211072101
+Dipropylene Glycol,4.339532873018829
+m-Ethyltoluene,4.2989776783173195
+m-Xylene,4.295959461958894
+Vinyl Acetate,4.271073854879646
+Acrylic Acid,4.267764481301441
+1-Ethyl-2-Propyl Cyclohexane,4.196936598611424
+Perchloroethylene (Tetrachloroethene),4.0906675875838685
+Ethylbenzene,3.903475483109552
+Diacetone Alcohol,3.8825322788303485
+Ethylcyclohexane,3.8499665198960944
+"N,N-Diethyl-M-Toluamide",3.608228333189439
+Decamethyltetrasiloxane,3.5980275938496673
+4-methylnonane,3.586605821250754
+Ethyl Lactate,3.524743038976905
+"1,1,1,3,3-Pentafluoropropane (HFC-245fa)",3.426030626943002
+N-Nonane,3.404041320257694
+"4,4-Dimethyloxazolidine",3.3824308365186027
+C12 Naphthalenes,3.3235118346422783
+"trans-1,4-dimethylcyclohexane",3.256112581224294
+C15 Cycloalkanes,3.222073486033542
+White Mineral Oil,3.195461997406174
+"trans-1,3-dimethylcyclohexane",3.172032727066061
+2-methyldecane,3.1690861715679945
+C11 Tetralin or Indane,3.146321482624706
+Camphor,3.074870634244404
+"1,3,5-Trimethylbenzene",3.0159081928067937
+Methyl Propyl Ketone (2-Pentanone),3.000630859347616
+n-Pentadecane,2.9558537042081254
+Diethylenetriamine,2.9525141988289283
+3-methyldecane,2.9285985566666373
+"2,6-dimethylheptane",2.905081836260553
+Diethyl Aminoethanol,2.8266592217675903
+Linalool,2.77733891098445
+Hexamethyldisilazane,2.704614421757443
+Soybean Oil,2.696287250805681
+"cis-1,cis-3,5-trimethylcyclohexane",2.626383383427228
+Peach Lactone,2.6224548275149435
+C16 Branched Alkanes,2.558841565022478
+"trans,cis-1,2,4-trimethylcyclohexane",2.5576603049297053
+"1,1,3-trimethylcyclohexane",2.556034927007553
+"1,1,3-trimethylcyclopentane",2.5162551687966643
+4-methyldecane,2.512321898029155
+Tetramethylbenzenes,2.4859488989145575
+Methyl Methacrylate,2.4697514383571515
+"Hexylene Glycol (2-Methyl-2,4-Pentanediol)",2.4101944604385994
+"1,2,3-trimethylbenzene",2.4080300510008903
+5-methyldecane,2.4046477018266343
+"trans,trans-1,3,5-trimethylcyclohexane",2.4046477018266343
+Diisopropyl Adipate,2.3746982119407805
+Diethylene Glycol Butyl Ether Acetate (2-2-(Butoxyethoxy)Ethyl Acetate),2.370840525982223
+Tetrahydrofuran,2.3672503566444827
+Hydroxypropyl Methacrylate,2.3185418043074466
+Butylcyclohexane,2.31739920856914
+4-methylheptane,2.2979787020901616
+Triethanolamine,2.259897595006832
+p-Ethyltoluene,2.2497923475337553
+o-Ethyltoluene,2.238816370252528
+Methyl Propylcyclohexanes,2.2272384945524824
+"Hydrocarbons, C13-C14, Isoalkanes",2.196556777323658
+"N,N-Dimethylethanolamine",2.188976584950984
+C11 Dialkyl Benzenes,2.1320711281891613
+Hexamethyldisiloxane,2.062535113392401
+Methylindans,2.0229722999753306
+Tert-Butyl Alcohol,1.9868871521652829
+"1,2,3,5-Tetramethylbenzene",1.9005604665465694
+Aliphatics,1.8874125817378835
+"1,3,5-trimethylbenzene",1.7536145074083203
+Menthol,1.7458255629287953
+Diethylene Glycol Ethyl Ether Acetate,1.697001545256865
+C15 Branched Alkanes,1.694958605365214
+Siloxanes,1.6490245191411494
+Trichloroethylene,1.6468929949529376
+Methoxysilane,1.6468919525093357
+Ethanolamine,1.6219261676103272
+n-Propylbenzene,1.6082140561115226
+Isopentane,1.5795463412255593
+C16 Cycloalkanes,1.568793694755063
+Dimethyl Sulfoxide,1.5682344264193375
+B-Pinene,1.5681633875483043
+Triethylamine,1.500058962475985
+Indan,1.4685423082106188
+Hexadecane,1.4350496959224357
+Branched C17 Alkanes,1.42721549150165
+Tributyl Phosphate,1.3937130404071543
+"1,5-Pentanediol",1.3789984322269093
+"Alkanes, C11-12-Iso-",1.3474314414308677
+Dihydroxyacetone,1.3297058499009642
+Hydroxyethyl Methacrylate,1.3180862499309565
+2-Methylnaphthalene,1.3108189931320449
+"Trans-1,2-Dichloroethene",1.23158365936223
+Methylcyclopentane,1.231142713096591
+Morpholine,1.21540233835261
+Amyl Acetate,1.2058819281813495
+2-Butoxy-1-Propanol,1.201435474895088
+3-Methylpentane,1.1673041067490855
+Methyl Styrene (Mixed) {Vinyl Toluene},1.1452962535675861
+Pentamethylbenzene,1.1047684006814789
+Isobutyl Alcohol,1.0886737351713438
+"1,3-Diethylbenzene (meta)",1.044458737948115
+Ethylene Glycol Dimethacrylate,0.9581744192425957
+Triethoxyoctylsilane,0.9389742176993526
+C14 Branched Alkanes,0.920350773843013
+trans 1-methyl-3-propyl cyclohexane,0.9001074043524337
+Cyclohexanone,0.8717036623975573
+Toluene,0.8572927288765125
+Diethanolamine,0.8455765883852673
+Cumene,0.8349348532900861
+2-(Methylamino)Ethanol,0.8244756630692102
+"Hexahydro-1,3,5-Tris(2-Hydroxyethyl)-S-Triazine",0.8160718331837304
+C10 Monosubstituted Benzenes,0.7709263186467183
+Misc. trimethylbenzenes,0.7489086761702868
+Acetaldehyde,0.7317323485553647
+C11 Monosubstituted Benzenes,0.7216883732405087
+Ethylene Oxide,0.7153330483351847
+Phenol,0.7089367087496455
+1-Nitropropane,0.6762014345634658
+Triethylene Glycol Monobutyl Ether,0.6759631148359215
+Methyltrimethoxysilane,0.6712791716205394
+Misc. Glycol Ethers And Acetates,0.6587567810037344
+2-(2-Ethylhexyloxy)ethanol,0.6472952559511223
+Benzaldehyde,0.6457503730568412
+"1,4-Diethylbenzene (para)",0.6371119880083144
+2-Ethyl-1-Hexanol,0.6368851396633178
+n-Butylbenzene,0.6253517766561493
+Napthalene,0.6145427080695341
+Formaldehyde-Phenol-M-Xylenediamine Copolymer,0.6044297935338467
+Propylene Carbonate,0.5997636364362358
+"Misc. glycols, glycol ethers, and acetates",0.5991269409362295
+"Other, Misc. Exempt Compounds Aggregated In Profile",0.580219148880337
+C12 Dialkyl Benzenes,0.5694008862513594
+T-Butyl Acetate,0.5633348552549748
+C13 Trisubstituted Benzenes,0.5506262233918936
+C13 Naphthalenes,0.5345099665288754
+Pentyl Propanoate,0.49641902503493823
+Glutaraldehyde,0.4915455689424814
+Gamma- Butyrolactone,0.48915149037217587
+Nitroethane,0.4817181049552112
+Isobutyl Isobutyrate,0.4660339545367337
+3-Methyl-3-Methoxy-1-Butanol,0.46525597856717615
+Dihydromyrcenol,0.46224753468540347
+Polytrimethylhydrosilylsiloxane,0.46131313129118307
+Troysan 174,0.4498227273271768
+Dimethyl Succinate,0.4362087173353715
+"1,1-Dichloro-1-Fluoroethane {HCFC-141b}",0.4142463203850131
+Tetrahydrofurfuryl Alcohol,0.3290074418894931
+Lactic Acid,0.3285155629167088
+"1,2-diethylbenzene (ortho)",0.3137932737726838
+Aliphatics,0.30650387280339725
+n-Pentane,0.3010362446743592
+1-Methyl Naphthalene,0.3009743055124224
+2-(Methylamino)-2-Methyl-1-Propanol,0.2998818182181179
+"Alkanes, C11-13-Iso-",0.29953357854922613
+Tetrahydrofurfuryl Methacrylate,0.2878422075079734
+Bromopropane,0.2690357618860335
+Glyoxal,0.2648906606685199
+Volatile Methyl Siloxanes,0.2633036252120427
+2-Methoxyethyl Cyanoacrylate,0.2534705585787099
+Benzyl Benzoate,0.2529045443166881
+"Vinegar, ext.",0.25092864353453964
+Disiloxane,0.24216290066431675
+Cumene,0.2378353899043395
+Octanol,0.23620113590631425
+Hedione,0.2357203373293669
+Misc./Other VOC,0.23351092034895715
+Bis(Isopropyl)Amine,0.2293422832202606
+1-Chloro-2-(Trifluoromethyl)-Benzene,0.2043168113854326
+"2,3-Dimethylbutane",0.2016539602723981
+C12 Monosubstituted Benzenes,0.19202645685266145
+Citronellas,0.1827662385510606
+Polydimethylsiloxane,0.17752033770660933
+Polymethylhydrosiloxane,0.1714538366460537
+Dimethyl Phthalate,0.17068337347512852
+Diisobutyl Phthalate,0.16907321874426035
+Crude Oil,0.16457065342303692
+"Alkanes, C10-C13",0.16387899750398752
+Tripropylene Glycol Methyl Ether,0.15125140072720716
+Dodecamethylpentasiloxane,0.15017854304763828
+C14 Naphthalenes,0.1489559188082127
+"2,2,4-Trimethylpentane",0.1470498234008125
+2-Propoxy-1-Propanol,0.13383465599521216
+2-Nitropropane,0.13334399528733265
+Naphthalene,0.1222427156907609
+Isopropyl acetate,0.12082398710857592
+"2,2-Dimethylbutane",0.12062455840206433
+"1,1,1,2,3,4,4,5,5,5-Decafluoropentane {HFC-43-10mee}",0.10147874119302214
+Formaldehyde,0.10001264914056872
+3-Ethylheptamethyltrisiloxane,0.09824179691033004
+Diisobutyl Ketone,0.09189934934285741
+2-Methacrylic Acid,0.09146306105862892
+"1,1,1,3,5,5,5-Heptamethyl-3-Octyl-Trisiloxane",0.09010712582858299
+Furfuryl Alcohol,0.0841373243107417
+Methylene Glycol,0.08197245474683591
+Propanediol,0.08009522295874043
+2-Methyl-1-Butyl Acetate,0.07906422899994936
+Oxo-Hexyl Acetate,0.0778404033403211
+Triethylene Diamine,0.07604116757361297
+Dimethyl Carbonate,0.06996625843915956
+Pentafluorobenzonitrile,0.0651781436345254
+Trimethylbenzenes,0.06475298974647396
+C15 Naphthalenes,0.05966694068455683
+"Formaldehyde, Olgomeric Reaction Products With 4,4'- Isopropylidenediphenol and Diethylenetriamine",0.05877174490121736
+"N,N-Dimethyl-P-Toluidine",0.058645558907984584
+"3,3-Dichloro-1,1,1,2,2-Pentafluoropropane {HCFC-225ca}",0.057263461935575334
+Tetralin,0.0522480288031517
+C13 Disubstituted Benzenes,0.05110174100958966
+Cyclohexyl Methacrylate,0.048465799112852224
+1-Amino-2-propanol,0.04713632513254781
+Triethyl Citrate,0.04700373802266795
+Propylene,0.04483142993827818
+Methyl Isoamyl Ketone,0.04325218933431754
+(1-methylpropyl)benzene (sec-butyl benzene),0.04060576154221895
+Ethane,0.04054561282146153
+C14 Trisubstituted Benzenes,0.04053875236329221
+n-Heptadecane,0.03958433982051731
+Isooctane,0.03773235894071912
+Xylene Range Solvent,0.03710118114330391
+C17 Cycloalkanes,0.036859092539211255
+"1,3-Butylene Glycol",0.03434953161142802
+2-Ethyl Hexyl Acetate,0.033711344209740306
+"1,4-Butanediol",0.033611451035742444
+Pine Oil,0.03272563239074205
+"Ethene, 1,1,2,2-Tetrafluoro-, Oxidized, Polymd.",0.030696152427155725
+Cyclohexanol,0.030693210465295707
+1-Butene,0.02986648302818816
+4-Heptanone,0.029826858614992516
+Dibutyl Phthalate,0.029308604040312203
+Galaxolide,0.028849230007389412
+"1,3,3,3-Tetrafluoropropene",0.028413074612883102
+A-Methylstyrene,0.025347055857870983
+Diethylbenzene,0.024131011851037436
+Tetra(Methyl Ethyl Ketoxime)Silane,0.020862576744555356
+Benzyl Acetate,0.018662810439700285
+Diethyl Ketone,0.018072511036404983
+Methylbutyric Acid,0.016231387952837923
+Chlorotoluene,0.015902817346505175
+C13 Monosubstituted Benzenes,0.014786474968859934
+C10-13 Isoalkanes,0.014141812803652606
+O-Xylene,0.013182962271113863
+Pentyl Alcohol,0.010491532624130233
+Isomers Of Heptane,0.010251402917581849
+Butyl Methacrylate,0.009163935579384127
+N-Dodecane,0.007383778366508882
+C15 Trisubstituted Benzenes,0.005871552849972441
+"1,1-Diethoxybutane",0.005487219784616028
+Tetradecafluorohexane,0.005396728911663409
+7-Methyl-1-Octanol,0.004880802649048245
+"N,N-Dimethyl-O-Toluidine",0.004400917390707271
+Diisobutyl Succinate,0.004286345916151343
+Cyclopentane,0.004094524407809929
+"1,2-Pentanediol",0.0040881331475073335
+C14 Disubstituted Benzenes,0.003917932139329604
+"1,3-Propandiol",0.003713523337177976
+Benzene,0.0029525141988289284
+Benzyl Salicylate,0.0029147689158863658
+Tripropylene Glycol,0.0022802336280917396
+"1,1,1,2,2,3,3,4,4-Nonafluoro-4-Methoxy-Butan",0.0022018653959586707
+"4,6-Dimethyl-2-Heptanone",0.0019426257181454048
+C14 Monosubstituted Benzenes,0.0013341275465896386
+"1,1,1,3,3-Pentafluorobutane {HFC-365MFC}",0.0012251402612694017
+Dimethoxymethane,0.0009273161093586078
+2-Methoxy-1-Propanol,0.0008596288021061547
+2-Aminopropane,0.0005726101485278893
+Benzene,0.000376025996512008
