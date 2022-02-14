@@ -36,7 +36,7 @@ def subpuc_timeseries(loopsubpucs,years2loop):
 
         ############################################################################################
         ### Import data.
-        temp_array = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(7))
+        temp_array = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(9))
         name_array = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,dtype='str',usecols=(0))
         ############################################################################################
         
@@ -196,7 +196,7 @@ def total_timeseries(years2loop):
 
         ############################################################################################
         ### Import data.
-        final_array[counter] = np.sum(np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(7)))
+        final_array[counter] = np.sum(np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(9)))
         ############################################################################################
         
         counter += 1

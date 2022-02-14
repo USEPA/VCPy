@@ -12,7 +12,7 @@ def aq_potential(year,subpuc_names):
     state_emissions  = np.genfromtxt('./output/emissions_spatially_allocated/'+str(year)+'/subpuc_state_TOG_emissions_'+str(year)+'.csv',delimiter=',',skip_header=2)   # fipstate, fipcty, emissions
     county_emissions = np.genfromtxt('./output/emissions_spatially_allocated/'+str(year)+'/subpuc_county_TOG_emissions_'+str(year)+'.csv',delimiter=',',skip_header=2)  # fipstate, fipcty, emissions
     ### Import sub-PUC specific effective SOA Yields and MIR values.
-    subPUC_effective = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(13,14))      # SOAYield.%, MIR.gO3/g
+    subPUC_effective = np.genfromtxt('./output/emissions_by_subpuc/'+str(year)+'/summary_by_subpuc_'+str(year)+'.csv',delimiter=',',skip_header=1,usecols=(15,16))      # SOAYield.%, MIR.gO3/g
     ################################################################################################
     
     ################################################################################################

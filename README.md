@@ -27,3 +27,38 @@
     -Fixed bug in speciated_spatial_allocation.py: allocation based on estimated
      emissions; not organic composition profiles.
 #####################################################################################
+
+#####################################################################################
+### VCPy.v2.0: Results and description published in TBD
+	-Updated printing ink organic profile from SPECIATE profile 2570 to CARB profile 517.
+	-Removed O&G solvents. Will be covered in O&G Tool.
+	-Updated all allocation methods to be consistent with NEI methods.
+	-Speciated fragrances using average profile provided in Coggon et al 2021 PNAS SI.
+	-Added new sub-PUCs to facilitate mapping to SCCs. Now 34 sub-PUCs in total.
+	-Updated organic profiles for all industrial coating sub-PUCs to be consistent
+	 with circa-2020 modeling platform profile mapping (profiles themselves are much
+	 older than 2020).
+	-Summary output and speciated emissions (state- and county-level) now provided for
+	 both sub-PUCs and SCCs.
+	-Updated 1st-order speciation for industrial coatings to reflect water vs. solvent
+	 based reported sales from 2014 CARB coatings survey. Updated Automotive Refinishing
+	 1st-order speciation to 47.27% by using 5.2 lb/gal (EIIP Table 13.2-1) and a 
+	 11 lb/gal density assumption.
+	-Assumed 50% of allied paint products that are used as paint strippers, cleaners, 
+	 or solvents are disposed (i.e., feature post-use controls). This translates to 
+	 ~33% of the sub-PUC.
+	-SMOKE flat files are now output (county-level SCC emissions for TOG and VOC;
+	 formatted for direct input into EMF).
+	-Each sub-PUC is now able to be emitted indoors or outdoors. This is specified in
+	 the subpuc_percent_indoors.csv input file. All cleaning products, short use 
+	 personal care products, adhesives/sealants, and misc emissions are assumed to be
+	 entirely emitted indoors. All fuels/lighters, pesticides, and automotive 
+	 aftermarket are assumed to be entirely emitted outdoors. The rest are largely
+	 50/50. Indoor emissions are assigned a lower mass transfer coefficient to reflect
+	 more stagnant air conditions indoors and this is specified in the VCPy.main.py
+	 file.
+	-Some states have implemented area source VOC rules for nonpoint solvents. By
+	 using CARB derived data throughout the country, emissions from states without
+	 these rules are artificially depressed. Scaling factors are now applied to select
+     states and sub-PUCs to account for this variation. 
+#####################################################################################

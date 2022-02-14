@@ -14,14 +14,19 @@ startTime = datetime.now()
 ### User Input
 ### Start and end year for execution:
 STARTYEAR = '2016'
-ENDYEAR   = '2018'
+ENDYEAR   = '2019'
 ### Generate summary figures (TRUE or FALSE)?
 GEN_FIGS  = 'FALSE'
+### Generate SMOKE flat files (TRUE or FALSE)? Note: substantially increases execution time.
+GEN_FF10  = 'TRUE'
 ### Location of modules:
 sys.path.append('./modules/')
-### Evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 for more details.
-d      = 0.1   # mm; depth
-ve     = 30.   # m/hr; mass transfer coefficient
+### Outdoor evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 Atmos Chem Phys for more details.
+d_out  = 0.1   # mm; depth
+ve_out = 30.   # m/hr; mass transfer coefficient
+### Indoor evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 Atmos Chem Phys for more details.
+d_in   = 0.1   # mm; depth
+ve_in  = 5.    # m/hr; mass transfer coefficient
 ####################################################################################################
 
 ####################################################################################################
@@ -30,11 +35,13 @@ subpuc_names     = np.genfromtxt("./input/subpuc_1st_order_speciation.csv",delim
 subpuc_usage     = np.genfromtxt("./input/subpuc_usage.csv",delimiter=",")
 subpuc_usetime   = np.genfromtxt("./input/subpuc_usetimescales.csv",delimiter=",",skip_header=1)
 subpuc_controls  = np.genfromtxt("./input/subpuc_controls.csv",delimiter=",",skip_header=1)
+subpuc_per_in    = np.genfromtxt("./input/subpuc_percent_indoors.csv",delimiter=",",skip_header=1)
 first_ord_spec   = np.genfromtxt("./input/subpuc_1st_order_speciation.csv",delimiter=",",skip_header=1,usecols=(2,3,4,5)) 
 organic_spec     = np.genfromtxt("./input/subpuc_organic_speciation.csv",delimiter=",")
 chem_index       = np.genfromtxt("./input/chemical_assignments_index.csv",delimiter=";",skip_header=1,dtype='str',usecols=(0))
 chem_props_vars  = np.genfromtxt("./input/chemical_assignments.csv",delimiter=",",skip_header=1,usecols=(1,4,5,6,9,12,13,14))  # SPECIATE_ID, NumC, NumO, MW, Koa, log(C*), SOA Yield, MIR
 chem_props_strs  = np.genfromtxt("./input/chemical_assignments.csv",delimiter=",",skip_header=1,dtype='str',usecols=(0,2,3))   # GROUP, HAPS, nonVOCTOG
+subpuc_scc_map   = np.genfromtxt("./input/subpuc_SCC_map.csv",delimiter=",",dtype='str',skip_header=1)                         # SCC	PUC_sub-PUC
 county_fips      = np.genfromtxt("./input/county_fips_index.csv",delimiter=",",dtype='str',usecols=(0))                        # Index of FIPS IDs
 tot_population   = np.genfromtxt("./input/state_population.csv",delimiter=",")                                                 # population count
 ####################################################################################################
@@ -50,6 +57,8 @@ import subpuc_speciation
 import subpuc_speciation_ordered
 ### This module contains two functions that generate TOG/VOC csv files for each sub-PUC by state and county.
 import subpuc_spatial_allocation
+### This module contains a function that generates SCC-level TOG & VOC summaries.
+import scc_summary
 ### This module contains a single function that calculates the SOA and O3 potential for all states and counties.
 import subpuc_airquality_potential
 ### This module contains a single function that calculates the total, county-level VCP emissions speciated and ordered.
@@ -73,19 +82,23 @@ for year in years2loop:
     check_inputs.check_organic_spec(subpuc_names,organic_spec,chem_index)
     ### QA check on chemical_assignments.csv file
     check_inputs.check_chem_assignments(chem_props_vars,chem_props_strs,chem_index)
+    ### QA check on subpuc_SCC_map.csv file
+    check_inputs.check_subpuc_SCC_map(subpuc_scc_map,subpuc_names)
 
     ### Checks for necessary output directories and creates them, if absent.
     check_directories.check_create_directory(year)
 
-    ### Calculate evaporation timescale for all compounds
-    evaptime = subpuc_speciation.calc_evaptime(d,ve,chem_props_vars)
+    ### Calculate evaporation timescale for all compounds outdoors
+    evaptime_outdoors = subpuc_speciation.calc_evaptime(d_out,ve_out,chem_props_vars)
+    ### Calculate evaporation timescale for all compounds indoors
+    evaptime_indoors = subpuc_speciation.calc_evaptime(d_in,ve_in,chem_props_vars)
     ### Calculate carbon mass of all compounds
     c_mass = subpuc_speciation.calc_c_mass(chem_props_vars)
     ### Extract year-specific usage
     year_specific_usage = subpuc_speciation.year_specific_usage(year,subpuc_usage)
     ### Calculate total and speciated sub-PUC emissions
-    subpuc_speciation.calc_subpuc_emis(year,subpuc_names,year_specific_usage,subpuc_usetime,subpuc_controls,first_ord_spec,organic_spec,\
-                                       chem_props_vars,chem_props_strs,evaptime,c_mass)
+    subpuc_speciation.calc_subpuc_emis(year,subpuc_names,year_specific_usage,subpuc_usetime,subpuc_controls,subpuc_per_in,first_ord_spec,\
+                                       organic_spec,chem_props_vars,chem_props_strs,evaptime_outdoors,evaptime_indoors,c_mass,subpuc_scc_map)
     
     ### Calculate the O:C ratio for all compounds
     oc_ratio = subpuc_speciation_ordered.oxycar_ratio(chem_props_vars)
@@ -96,8 +109,16 @@ for year in years2loop:
 
     ### Calculates US population for target year
     annual_pop = subpuc_spatial_allocation.annual_population(year,tot_population)
-    ### Generate TOG/VOC csv files for each sub-PUC by state and county.
-    subpuc_spatial_allocation.allocate(year,subpuc_names,annual_pop)
+    ### Generate TOG/VOC csv files for each sub-PUC and SCC by state and county
+    subpuc_spatial_allocation.allocate(year,subpuc_names,annual_pop,subpuc_scc_map)
+    ### Generate SMOKE flat file
+    if GEN_FF10 == 'TRUE':
+        subpuc_spatial_allocation.smoke_flat_file(year)
+    elif GEN_FF10 == 'FALSE': pass
+    else: print('Check GEN_FF10 entry.')
+
+    ### Generate SCC-level TOG/VOC summary csv files
+    scc_summary.summary(year,subpuc_names,annual_pop,subpuc_scc_map,tot_population)
     
     ### Calculates the SOA and O3 potential for all states and counties.
     subpuc_airquality_potential.aq_potential(year,subpuc_names)

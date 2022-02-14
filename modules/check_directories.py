@@ -16,6 +16,10 @@ def check_create_directory(year):
     except FileExistsError:
         pass
     try:
+        os.makedirs('./output/emissions_by_scc/'+str(year))
+    except FileExistsError:
+        pass
+    try:
         os.makedirs('./output/emissions_spatially_allocated/'+str(year))
     except FileExistsError:
         pass
@@ -23,5 +27,8 @@ def check_create_directory(year):
         os.makedirs('./output/speciated_emissions_spatially_allocated/'+str(year))
     except FileExistsError:
         pass
-
+    try:
+        os.makedirs('./output/smoke_flat_file/'+str(year))
+    except FileExistsError:
+        pass
 ####################################################################################################
