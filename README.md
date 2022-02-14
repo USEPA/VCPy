@@ -30,7 +30,7 @@
 
 #####################################################################################
 ### VCPy.v2.0: Results and description published in TBD
-	-Updated printing ink profile from SPECIATE profile 2570 to CARB profile 517.
+	-Updated printing ink organic profile from SPECIATE profile 2570 to CARB profile 517.
 	-Removed O&G solvents. Will be covered in O&G Tool.
 	-Updated all allocation methods to be consistent with NEI methods.
 	-Speciated fragrances using average profile provided in Coggon et al 2021 PNAS SI.
@@ -41,7 +41,9 @@
 	-Summary output and speciated emissions (state- and county-level) now provided for
 	 both sub-PUCs and SCCs.
 	-Updated 1st-order speciation for industrial coatings to reflect water vs. solvent
-	 based reported sales from 2014 CARB coatings survey.
+	 based reported sales from 2014 CARB coatings survey. Updated Automotive Refinishing
+	 1st-order speciation to 47.27% by using 5.2 lb/gal (EIIP Table 13.2-1) and a 
+	 11 lb/gal density assumption.
 	-Assumed 50% of allied paint products that are used as paint strippers, cleaners, 
 	 or solvents are disposed (i.e., feature post-use controls). This translates to 
 	 ~33% of the sub-PUC.
@@ -58,5 +60,5 @@
 	-Some states have implemented area source VOC rules for nonpoint solvents. By
 	 using CARB derived data throughout the country, emissions from states without
 	 these rules are artificially depressed. Scaling factors are now applied to select
-     states and sub-PUCs to account for this variation.	 
+     states and sub-PUCs to account for this variation. 
 #####################################################################################

@@ -89,7 +89,7 @@ def summary(year,subpuc_names,annual_pop,subpuc_scc_map,tot_population):
                 uncrtl_population[i,j] = 0
             else:
                 uncrtl_population[i,j] = tot_population[i]
-    
+
     unctrl_subpuc_state_VOC_array[:,2:] = final_subpuc_state_VOC_array[:,2:] * state_rule_scaling[:,2:] * 2.20462
     
     for i in range(len(scc_labels)):
@@ -98,14 +98,14 @@ def summary(year,subpuc_names,annual_pop,subpuc_scc_map,tot_population):
                 for k in range(len(subpuc_names)):
                     if subpuc_names[k] == subpuc_scc_map[j,1]:
                         if np.sum(uncrtl_population[:,k],axis=0) == 0:
-                            unctrl_scc_state_VOC_array[i] = np.nan
+                            unctrl_scc_state_VOC_array[i] = 0.0
                         else:
                             unctrl_scc_state_VOC_array[i] += np.sum(unctrl_subpuc_state_VOC_array[:,2+k],axis=0) / np.sum(uncrtl_population[:,k],axis=0)
                             break
                     else: pass
             else: pass
 
-    unctrl_subpuc_state_VOC_array[unctrl_subpuc_state_VOC_array[:]<=0.0] = 1.0
+    unctrl_scc_state_VOC_array[unctrl_scc_state_VOC_array[:]<=0.0] = np.nan
 
     ###
     final_scc_array[:,1]                = scc_TOG_emis[:] * 0.00110231                                  # short tons
@@ -115,7 +115,7 @@ def summary(year,subpuc_names,annual_pop,subpuc_scc_map,tot_population):
     final_scc_array[:,5]                = np.sum(final_scc_state_VOC_array[:,2:],axis=0) * 0.00110231   # short tons
     final_scc_array[:,6]                = final_scc_array[:,5] - final_scc_array[:,4]                   # short tons
     final_scc_array[:,7]                = final_scc_array[:,4] * 2000 / annual_pop                      # lb/person/yr
-    final_scc_array[:,8]                = unctrl_scc_state_VOC_array[:] #/ np.sum(uncrtl_population[:])  # lb/person/yr
+    final_scc_array[:,8]                = unctrl_scc_state_VOC_array[:]                                 # lb/person/yr
     final_scc_array[:,9]                = final_scc_array[:,8] / final_scc_array[:,7]                   # ratio
     
     final_scc_array[np.absolute(final_scc_array[:])<1e-8] = 0.0
