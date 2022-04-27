@@ -13,12 +13,12 @@ startTime = datetime.now()
 ####################################################################################################
 ### User Input
 ### Start and end year for execution:
-STARTYEAR = '2002'
-ENDYEAR   = '2010'
+STARTYEAR = '2016'
+ENDYEAR   = '2019'
 ### Generate summary figures (TRUE or FALSE)?
 GEN_FIGS  = 'FALSE'
 ### Generate SMOKE flat files (TRUE or FALSE)? Note: substantially increases execution time.
-GEN_FF10  = 'TRUE'
+GEN_FF10  = 'FALSE'
 ### Location of modules:
 sys.path.append('./modules/')
 ### Outdoor evaporation timescale parameters. See Section 2.1.5 of Seltzer et al. 2021 Atmos Chem Phys for more details.
