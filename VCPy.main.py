@@ -13,8 +13,8 @@ startTime = datetime.now()
 ####################################################################################################
 ### User Input
 ### Start and end year for execution:
-STARTYEAR = '2015'
-ENDYEAR   = '2016'
+STARTYEAR = '2020'
+ENDYEAR   = '2021'
 ### Generate summary figures (TRUE or FALSE)?
 GEN_FIGS  = 'FALSE'
 ### Generate SMOKE flat files (TRUE or FALSE)? Note: substantially increases execution time.
