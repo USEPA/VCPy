@@ -29,7 +29,7 @@
 #####################################################################################
 
 #####################################################################################
-### VCPy.v2.0: Results and description published in TBD
+### VCPy.v2.0: Results and description
 	-Updated printing ink organic profile from SPECIATE profile 2570 to CARB profile 517.
 	-Removed O&G solvents. Will be covered in O&G Tool.
 	-Updated all allocation methods to be consistent with NEI methods.
@@ -57,8 +57,9 @@
 	 50/50. Indoor emissions are assigned a lower mass transfer coefficient to reflect
 	 more stagnant air conditions indoors and this is specified in the VCPy.main.py
 	 file.
-	-Some states have implemented area source VOC rules for nonpoint solvents. By
-	 using CARB derived data throughout the country, emissions from states without
-	 these rules are artificially depressed. Scaling factors are now applied to select
-     states and sub-PUCs to account for this variation. 
+
+#####################################################################################
+### VCPy.v2.1: Results and description
+	-Updated to include newer years.
+
 #####################################################################################
